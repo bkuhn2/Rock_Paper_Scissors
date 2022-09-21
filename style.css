@@ -1,0 +1,21 @@
+section {
+    border-width: 30px;
+    border: cadetblue;
+    border-style: solid;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+}
+
+.human-section,
+.computer-section {
+  height: 100vh;
+  width: 15%;
+}
+
+.home-section {
+  height: 100vh;
+  width: 70%;
+}
