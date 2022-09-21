@@ -3,10 +3,22 @@ section {
     border: cadetblue;
     border-style: solid;
 }
+header {
+  border-width: 25px;
+  border: black;
+  border-style: solid;
+  font-size: 1.75em;
+}
 
 body {
   display: flex;
   flex-direction: row;
+}
+
+button {
+  height: 33px;
+  width: 101px;
+  border-radius: 10px;
 }
 
 .human-section,
@@ -18,4 +30,36 @@ body {
 .home-section {
   height: 100vh;
   width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.choose-game-area {
+  border-width: 25px;
+  border: blue;
+  border-style: solid;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.game-choice-prompt {
+  border-width: 25px;
+  border: orange;
+  border-style: solid;
+  margin: 44px;
+}
+
+.game-choices {
+  display: flex;
+  border-width: 25px;
+  border: red;
+  border-style: solid;
+  width: 100%;
+  justify-content: space-evenly;
+
 }
