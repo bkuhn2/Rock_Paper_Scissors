@@ -1,3 +1,6 @@
+
+/* global style elements */
+
 section {
     border-width: 30px;
     border: cadetblue;
@@ -21,11 +24,41 @@ button {
   border-radius: 10px;
 }
 
+/* Human and computer section elements */
+
 .human-section,
 .computer-section {
   height: 100vh;
   width: 15%;
+  display: flex;
+  flex-direction: column;
 }
+
+.human-photo,
+.computer-photo {
+  height: 18%;
+  border-width: 25px;
+  border: aqua;
+  border-style: solid;
+}
+
+.human-score-section,
+.computer-score-section {
+  border-width: 25px;
+  border: pink;
+  border-style: solid;
+  height: 82%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.wins-tally {
+  margin: 4px;
+}
+
+/* Home Page Specific Elements */
 
 .home-section {
   height: 100vh;
