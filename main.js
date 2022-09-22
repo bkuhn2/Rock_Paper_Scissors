@@ -55,5 +55,8 @@ function showResultsClassic() {
 //else if currentGame.tie
 //then populate this way
 
+//OR
+//No ifs - just populate to reflect the current Game instance??
+
 //AND update the wins sections accordingly
 }
