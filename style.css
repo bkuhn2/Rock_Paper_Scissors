@@ -24,9 +24,7 @@ button {
   border-radius: 10px;
 }
 
-.hidden {
-  display: none;
-}
+
 
 /* Human and computer section elements */
 
@@ -73,7 +71,7 @@ button {
 
 /* Home Page Specific Elements */
 
-.home-section {
+.main-section {
   height: 100vh;
   width: 100%;
   min-width: 900px;
@@ -111,4 +109,74 @@ button {
   width: 100%;
   justify-content: space-evenly;
 
+}
+
+
+/* Classic Game Page Elements */
+
+.play-game-area {
+  /* border-width: 25px;
+  border: red;
+  border-style: solid; */
+  display: flex;
+  height: 675px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.fighter-display {
+  /* border-width: 25px;
+  border: blue;
+  border-style: solid; */
+  height: 675px;
+  width: 187px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.rock-image,
+.paper-image,
+.scissors-image {
+  height: 182px;
+  width: 190px;
+}
+
+.scissors-image {
+  margin-top: -50px;
+}
+
+.question-mark {
+  /* border-width: 25px;
+  border: blue;
+  border-style: solid; */
+  height: 283px;
+  width: 201px;
+}
+
+.shake {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  /* 0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-3px, -4px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); } */
+  30% { transform: translate(3px, 2px) rotate(14deg); }
+  /* 40% { transform: translate(1px, -1px) rotate(1deg); } */
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  /* 70% { transform: translate(2px, 0px) rotate(-1deg); } */
+  /* 80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); } */
+}
+
+/* Hidden style */
+
+.hidden {
+  display: none;
 }
