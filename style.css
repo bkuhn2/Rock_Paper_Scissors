@@ -24,6 +24,10 @@ button {
   border-radius: 10px;
 }
 
+h1 {
+  color: #EBE9D7;
+}
+
 h2 {
   padding: 14px;
 }
@@ -82,7 +86,6 @@ h2 {
   flex-direction: column;
   align-items: center;
   background-image:
-  /* rgb(31,30,30), */
   linear-gradient(0deg, rgba(17,17,17,0.76) 0%, rgba(48,48,48,0.04) 54%),
   url("./assets/blacktexture.jpg");
   border-radius: 10px;
@@ -105,6 +108,12 @@ h2 {
   border: orange;
   border-style: solid; */
   margin: 44px;
+  background: #1b1b1957;
+  border-radius: 7px;
+  color: #b75250;
+  border-width: 1px;
+  border-color: #120e0e73;
+  border-style: solid;
 }
 
 .game-choices {
