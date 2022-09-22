@@ -47,6 +47,13 @@ function unHideFightButton() {
 }
 
 function showResultsClassic() {
-  currentGame.determineWinner()
-  
+  currentGame.determineWinner(humanPlayer, computerPlayer);
+//if currentGame.winner.playerType === 'human'
+//then populate the dom this way
+//else if === computer
+//then populate this way
+//else if currentGame.tie
+//then populate this way
+
+//AND update the wins sections accordingly
 }
