@@ -22,6 +22,7 @@ button {
   height: 33px;
   width: 101px;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 h1 {
@@ -157,6 +158,7 @@ h2 {
 .scissors-image {
   height: 182px;
   width: 190px;
+  cursor: pointer;
 }
 
 .scissors-image {
