@@ -2,14 +2,14 @@
 /* global style elements */
 
 section {
-    border-width: 30px;
-    border: cadetblue;
-    border-style: solid;
+  /* border-width: 30px;
+  border: cadetblue;
+  border-style: solid; */
 }
 header {
-  border-width: 25px;
+  /* border-width: 25px;
   border: black;
-  border-style: solid;
+  border-style: solid; */
   font-size: 1.75em;
 }
 
@@ -24,34 +24,47 @@ button {
   border-radius: 10px;
 }
 
+.hidden {
+  display: none;
+}
+
 /* Human and computer section elements */
 
 .human-section,
 .computer-section {
   height: 100vh;
-  width: 15%;
+  width: 275px;
   display: flex;
   flex-direction: column;
+  background-image: url("./assets/white2.jpg");
+  align-items: center;
+  flex-wrap: nowrap;
+  /* background: rgb(31,30,30); */
+  /* background: linear-gradient(0deg, rgba(31,30,30,1) 14%, rgba(48,48,48,1) 92%); */
 }
 
 .human-photo,
 .computer-photo {
-  height: 18%;
-  border-width: 25px;
+  padding: 7px;
+  border-radius: 14px;
+  height: 160px;
+  width: 160px;
+  /* border-width: 25px;
   border: aqua;
-  border-style: solid;
+  border-style: solid; */
 }
 
 .human-score-section,
 .computer-score-section {
-  border-width: 25px;
+  /* border-width: 25px;
   border: pink;
-  border-style: solid;
+  border-style: solid; */
   height: 82%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  border-radius: 10px;
 }
 
 .wins-tally {
@@ -62,16 +75,19 @@ button {
 
 .home-section {
   height: 100vh;
-  width: 70%;
+  width: 100%;
+  min-width: 900px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-image: url("./assets/blacktexture.jpg");
+  border-radius: 10px;
 }
 
 .choose-game-area {
-  border-width: 25px;
+  /* border-width: 25px;
   border: blue;
-  border-style: solid;
+  border-style: solid; */
   height: 100%;
   width: 100%;
   display: flex;
@@ -81,17 +97,17 @@ button {
 }
 
 .game-choice-prompt {
-  border-width: 25px;
+  /* border-width: 25px;
   border: orange;
-  border-style: solid;
+  border-style: solid; */
   margin: 44px;
 }
 
 .game-choices {
   display: flex;
-  border-width: 25px;
+  /* border-width: 25px;
   border: red;
-  border-style: solid;
+  border-style: solid; */
   width: 100%;
   justify-content: space-evenly;
 
