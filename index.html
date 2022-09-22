@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./style.css">
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <section class="human-section">
+      <img src="./assets/human.jpeg" class="human-photo" alt="Depiction of humanity">
+      <div class="human-score-section">
+        <h2>Human</h2>
+        <h3 class="wins-tally">Wins</h3>
+        <p class="wins-tally">0</p>
+      </div>
+    </section>
+    <section class="main-section hidden" id="homePage">
+      <header>
+        <h1>Rock, Paper, Scissors</h1>
+      </header>
+      <div class="choose-game-area">
+        <h2 class="game-choice-prompt">Which game would you like to play?</h2>
+        <div class="game-choices">
+          <button type="button">Classic</button>
+          <button type="button">Spooky</button>
+        </div>
+      </div>
+    </section>
+    <section class="main-section" id="classicGamePage">
+      <header>
+        <h1>Classic Rock Paper Scissors</h1>
+      </header>
+      <div class="play-game-area">
+        <div class="fighter-display">
+          <img class="rock-image shake" src="./assets/rock.png" alt="Rock">
+          <img class="paper-image shake" src="./assets/paper.png" alt="Paper">
+          <img class="scissors-image shake" src="./assets/scissors.png" alt="Scissors">
+        </div>
+        <h2 class="game-choice-prompt">◀  Choose your fighter</h2>
+        <img class="question-mark" src="./assets/questionmark.png" alt="Question Mark">
+      </div>
+    </section>
+    <section class="computer-section">
+      <img src="./assets/terminator.jpeg" class="computer-photo" alt="Depiction of the computer enemy">
+      <div class="computer-score-section">
+        <h2>Computer</h2>
+        <h3 class="wins-tally">Wins</h3>
+        <p class="wins-tally">0</p>
+      </div>
+    </section>
+  </body>
+  <script type="text/javascript" src="./main.js"></script>
+  <script type="text/javascript" src="./player.js"></script>
+  <script type="text/javascript" src="./game.js"></script>
+</html>
