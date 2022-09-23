@@ -91,6 +91,10 @@ function loadSpookyGame() {
   //change background
 }
 
+
+
+
+
 function selectFighters(event) { //make this FOR BOTH CLASSIC AND SPOOKY
   event.preventDefault(); //necessary?
 
@@ -100,7 +104,12 @@ function selectFighters(event) { //make this FOR BOTH CLASSIC AND SPOOKY
     currentGame.determineWinner();
 
     fightButton.classList.remove('invisible'); //<-------instead of a hardwired button, make a new one here? or have a fxn invoked taht does that?
-    event.target.classList.add('shake'); //how make only one selected? series of conditoinals?
+
+    event.target.classList.add('shake');
+    setTimeout(removeShake, 2000) //need be in variable?
+    function removeShake() {
+      event.target.classList.remove('shake') //does event need be a param???
+    }
   }
 }
 
