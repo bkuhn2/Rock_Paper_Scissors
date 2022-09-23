@@ -11,7 +11,7 @@ class Game {
   determineWinner(human, computer) { //how can we condense this down?
     if (human.fighter === 'rock' && computer.fighter === 'scissors') {
       this.winner = human;
-      human.wins ++;
+      human.wins ++; //change the wins in game here
     } else if (human.fighter === 'rock' && computer.fighter === 'paper') {
       this.winner = computer;
       computer.wins ++;
@@ -29,6 +29,7 @@ class Game {
       computer.wins ++;
     } else if (human.fighter === this.computerFighter) {
       this.tie = true;
+      this.winner = '';
     }
   }
   resetBoard() {
