@@ -11,6 +11,14 @@ header {
   border: black;
   border-style: solid; */
   font-size: 1.75em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  margin: 10px;
+  margin-bottom: 40px;
+
 }
 
 body {
@@ -22,10 +30,12 @@ button {
   height: 33px;
   width: 101px;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 h1 {
   color: #EBE9D7;
+  margin: 22px;
 }
 
 h2 {
@@ -127,7 +137,14 @@ h2 {
 }
 
 
-/* Classic Game Page Elements */
+/* Game Page Elements */
+
+.home-button {
+
+}
+
+.fight-button {
+}
 
 .play-game-area {
   /* border-width: 25px;
@@ -157,10 +174,17 @@ h2 {
 .scissors-image {
   height: 182px;
   width: 190px;
+  cursor: pointer;
 }
 
 .scissors-image {
   margin-top: -50px;
+}
+
+.fighter-instructions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .question-mark {
@@ -172,8 +196,8 @@ h2 {
 }
 
 .shake {
-  animation: shake 0.5s;
-  animation-iteration-count: infinite;
+  animation: shake 2s;
+  animation-iteration-count: 2;
 }
 
 @keyframes shake {
@@ -182,8 +206,12 @@ h2 {
   60% { transform: translate(-3px, 1px) rotate(0deg); }
 }
 
-/* Hidden style */
+/* Hidden styles */
 
 .hidden {
   display: none;
+}
+
+.invisible {
+  visibility: hidden;
 }

@@ -7,36 +7,40 @@
   </head>
   <body>
     <section class="human-section">
-      <img src="./assets/human.jpeg" class="human-photo" alt="Depiction of humanity">
+      <img src="./assets/gigachad.jpeg" class="human-photo" alt="Depiction of humanity">
       <div class="human-score-section">
         <h2>Human</h2>
         <h3 class="wins-tally">Wins</h3>
         <p class="wins-tally">0</p>
       </div>
     </section>
-    <section class="main-section hidden" id="homePage">
+    <section class="main-section" id="homePage">
       <header>
         <h1>Rock, Paper, Scissors</h1>
       </header>
       <div class="choose-game-area">
         <h2 class="game-choice-prompt">Which game would you like to play?</h2>
         <div class="game-choices">
-          <button type="button">Classic</button>
-          <button type="button">Spooky</button>
+          <button type="button" id="classicGameButton">Classic</button>
+          <button type="button" id="spookyGameButton">Spooky</button>
         </div>
       </div>
     </section>
-    <section class="main-section" id="classicGamePage">
+    <section class="main-section hidden" id="gamePage">
       <header>
-        <h1>Classic Rock Paper Scissors</h1>
+        <button class="fight-button invisible" type="button" id="fightButton">Fight</button>
+        <h1>Classic Game</h1>
+        <button class="home-button" type="button" id="homeButton">Go Home</button>
       </header>
       <div class="play-game-area">
         <div class="fighter-display">
-          <img class="rock-image shake" src="./assets/rock.png" alt="Rock">
-          <img class="paper-image shake" src="./assets/paper.png" alt="Paper">
-          <img class="scissors-image shake" src="./assets/scissors.png" alt="Scissors">
+          <img id="rock" class="rock-image" src="./assets/rock.png" alt="Rock">
+          <img id="paper" class="paper-image" src="./assets/paper.png" alt="Paper">
+          <img id="scissors" class="scissors-image" src="./assets/scissors.png" alt="Scissors">
         </div>
-        <h2 class="game-choice-prompt">◀  Choose your fighter</h2>
+        <div class="fighter-instructions">
+          <h2 class="game-choice-prompt">◀  Choose your fighter</h2>
+        </div>
         <img class="question-mark" src="./assets/questionmark.png" alt="Question Mark">
       </div>
     </section>
