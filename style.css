@@ -196,8 +196,8 @@ h2 {
 }
 
 .shake {
-  animation: shake 0.5s;
-  animation-iteration-count: infinite;
+  animation: shake 2s;
+  animation-iteration-count: 2;
 }
 
 @keyframes shake {
