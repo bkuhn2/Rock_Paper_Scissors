@@ -20,7 +20,8 @@ var humanWinsCount = document.querySelector('#humanWinsCount')
 var computerWinsCount = document.querySelector('#computerWinsCount')
 
 var gamePage = document.querySelector('#gamePage');
-var gameArea = document.querySelector('.play-game-area')
+var gameHeader = document.querySelector('#gameHeader');
+var gameArea = document.querySelector('.play-game-area');
 // var classicFighterQueue = document.querySelector('.fighter-display') //will this be gone, DOM problems on reset?
 // var classicRock = document.querySelector('#rock'); am i using these? should i be?
 // var classicPaper = document.querySelector('#paper');
@@ -52,6 +53,7 @@ function createRandomNumber(totalFighters) {
 function loadClassicGame() {
   currentGame.type = 'classic';
 
+  gameHeader.innerText = `${currentGame.type.charAt(0).toUpperCase() + currentGame.type.slice(1)} Game`;
   gamePage.classList.remove('hidden');
   homePage.classList.add('hidden');
   gameArea.innerHTML = '';
@@ -67,14 +69,14 @@ function loadClassicGame() {
   <img class="question-mark" src="./assets/questionmark.png" alt="Question Mark">
   `
 
-  //change header to say classic
   //add rules
-  //add button to change games, restart(?)
+  //add button to change games, home
 }
 
 function loadSpookyGame() {
   currentGame.type = 'spooky';
 
+  gameHeader.innerText = `${currentGame.type.charAt(0).toUpperCase() + currentGame.type.slice(1)} Game`;
   gamePage.classList.remove('hidden');
   homePage.classList.add('hidden');
   gameArea.innerHTML = '';
@@ -107,29 +109,40 @@ function selectFighters(event) { //make this FOR BOTH CLASSIC AND SPOOKY
   if (allFighterTypes.includes(event.target.id)) {
     currentGame.humanPlayer.takeTurn(event);
     currentGame.computerPlayer.takeTurn(event, currentGame.type);
-    currentGame.determineWinner();
 
     fightButton.classList.remove('invisible'); //<-------instead of a hardwired button, make a new one here? or have a fxn invoked taht does that?
 
     event.target.classList.add('shake');
-    setTimeout(removeShake, 2000) //need be in variable?
+    setTimeout(removeShake, 2000) //need be outside selectFighters fxn??
     function removeShake() {
       event.target.classList.remove('shake') //does event need be a param???
     }
   }
 }
 
+function createHTMLResults(currentGame) { //name better
+  humanWinsCount.innerText = currentGame.humanPlayer.wins;
+  computerWinsCount.innerText = currentGame.computerPlayer.wins;
+  gameArea.innerHTML = '';
+  gameArea.innerHTML += `
+  <img id="${currentGame.humanPlayer.fighter}" class="${currentGame.humanPlayer.fighter}-image" src="./assets/${currentGame.humanPlayer.fighter}.png" alt="Rock">
+  <h2 class="game-text">${currentGame.winner.resultText}</h2>
+  <img id="${currentGame.computerPlayer.fighter}" class="${currentGame.computerPlayer.fighter}-image" src="./assets/${currentGame.computerPlayer.fighter}.png" alt="Question Mark">
+  `
+}
+
 function showResults(event, currentGame) {
   event.preventDefault();
 
-  if (event.target.id === 'fightButton') {
-    humanWinsCount.innerText = currentGame.humanPlayer.wins;
-    computerWinsCount.innerText = currentGame.computerPlayer.wins;
-    gameArea.innerHTML = '';
-    gameArea.innerHTML += `
-    <img id="${currentGame.humanPlayer.fighter}" class="${currentGame.humanPlayer.fighter}-image" src="./assets/${currentGame.humanPlayer.fighter}.png" alt="Rock">
-    <h2 class="game-text">${currentGame.winner.resultText}</h2>
-    <img id="${currentGame.computerPlayer.fighter}" class="${currentGame.computerPlayer.fighter}-image" src="./assets/${currentGame.computerPlayer.fighter}.png" alt="Question Mark">
-    `
+  if (event.target.id === 'fightButton' && currentGame.type === 'classic') {
+    currentGame.determineWinner();
+    createHTMLResults(currentGame);
+    setTimeout(loadClassicGame, 3000);
+    currentGame.resetBoard();
+  } else if (event.target.id === 'fightButton' && currentGame.type === 'spooky') {
+    currentGame.determineWinner();
+    createHTMLResults(currentGame);
+    setTimeout(loadSpookyGame, 3000);
+    currentGame.resetBoard();
   }
 }
