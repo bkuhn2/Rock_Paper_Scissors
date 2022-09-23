@@ -4,7 +4,7 @@ class Player {
     this.wins = 0;
     this.token = token;
     this.fighter = '';
-    this.resultText = `${token}  ${player} wins!`
+    this.resultText = `${token} ${player} wins!`
   }
   takeTurn(event, currentType) {
     if (this.name !== 'computer') {

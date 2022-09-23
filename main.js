@@ -1,10 +1,16 @@
 //Global Variables
 var currentGame;
-var humanPlayer; //no longer global?
-var computerPlayer; //no longer global?
+// var humanPlayer; //no longer global?
+// var computerPlayer; //no longer global? need be global?
 var classicTypes = ['rock', 'paper', 'scissors'];
 var spookyTypes = ['skeleton', 'bat', 'ghost', 'scarecrow', 'werewolf'];
-var allFighterTypes = ['rock', 'paper', 'scissors', 'skeleton', 'bat', 'ghost', 'scarecrow', 'werewolf']
+var allFighterTypes = ['rock', 'paper', 'scissors', 'skeleton', 'bat', 'ghost', 'scarecrow', 'werewolf'];
+var humanWinConditions = [
+  {humanFighter: 'rock', computerFighter: 'scissors'},
+  {humanFighter: 'paper', computerFighter: 'rock'},
+  {humanFighter: 'scissors', computerFighter: 'paper'}
+]
+
 
 //HTML elements
 var homePage = document.querySelector('#homePage');

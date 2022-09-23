@@ -6,34 +6,78 @@ class Game {
     this.tie = false;
     this.type = '';
   }
-  determineWinner() { //how can we condense this down?
-    if (this.humanPlayer.fighter === 'rock' && this.computerPlayer.fighter === 'scissors') {
+
+  determineWinner() { //is there a better way?
+    // if (this.humanPlayer.fighter === this.computerPlayer.fighter) {
+    //   this.tie = true;
+    //   this.winner = {
+    //     winner: 'none',
+    //     resultText: 'draw  😐',
+    //   };
+    //   return //necessary?
+    // }
+    //
+    // for (var i = 0; i < humanWinConditions.length; i++) {
+    //   if (humanWinConditions[i].humanFighter === this.humanPlayer.fighter && humanWinConditions[i].computerFighter === this.computerPlayer.fighter) {
+    //     this.winner = this.humanPlayer;
+    //     this.humanPlayer.wins ++;
+    //     return //necessary?
+    //   }
+    // }
+    //
+    // this.winner = this.computerPlayer;
+    // this.computerPlayer.wins ++;
+    if (this.humanPlayer.fighter === this.computerPlayer.fighter) {
+      this.tie = true;
+        this.winner = {
+          winner: 'none',
+          resultText: "draw  😐",
+        };
+    } else if (this.humanPlayer.fighter === 'rock' && this.computerPlayer.fighter === 'scissors') {
       this.winner = this.humanPlayer;
       this.humanPlayer.wins ++;
-    } else if (this.humanPlayer.fighter === 'rock' && this.computerPlayer.fighter === 'paper') {
-      this.winner = this.computerPlayer;
-      this.computerPlayer.wins ++;
-    } else if (this.humanPlayer.fighter === 'paper' && this.computerPlayer.fighter === 'rock'){
+    } else if (this.humanPlayer.fighter === 'paper' && this.computerPlayer.fighter === 'rock') {
       this.winner = this.humanPlayer;
       this.humanPlayer.wins ++;
-    } else if (this.humanPlayer.fighter === 'paper' && this.computerPlayer.fighter === 'scissors') {
-      this.winner = this.computerPlayer;
-      this.computerPlayer.wins ++;
     } else if (this.humanPlayer.fighter === 'scissors' && this.computerPlayer.fighter === 'paper') {
       this.winner = this.humanPlayer;
       this.humanPlayer.wins ++;
-    } else if (this.humanPlayer.fighter === 'scissors' && this.computerPlayer.fighter === 'rock') {
+    } else {
       this.winner = this.computerPlayer;
       this.computerPlayer.wins ++;
-    } else if (this.humanPlayer.fighter === this.computerPlayer.fighter) {
-      this.tie = true;
-      this.winner = {
-        winner: 'none',
-        resultText: "draw  😐",
-      };
     }
+
   }
+
   resetBoard() {
 
   }
 }
+
+
+//OLD WORKING DETERMINE WINNER CODE, BUT TOO LONG
+// if (this.humanPlayer.fighter === 'rock' && this.computerPlayer.fighter === 'scissors') {
+//   this.winner = this.humanPlayer;
+//   this.humanPlayer.wins ++;
+// } else if (this.humanPlayer.fighter === 'rock' && this.computerPlayer.fighter === 'paper') {
+//   this.winner = this.computerPlayer;
+//   this.computerPlayer.wins ++;
+// } else if (this.humanPlayer.fighter === 'paper' && this.computerPlayer.fighter === 'rock'){
+//   this.winner = this.humanPlayer;
+//   this.humanPlayer.wins ++;
+// } else if (this.humanPlayer.fighter === 'paper' && this.computerPlayer.fighter === 'scissors') {
+//   this.winner = this.computerPlayer;
+//   this.computerPlayer.wins ++;
+// } else if (this.humanPlayer.fighter === 'scissors' && this.computerPlayer.fighter === 'paper') {
+//   this.winner = this.humanPlayer;
+//   this.humanPlayer.wins ++;
+// } else if (this.humanPlayer.fighter === 'scissors' && this.computerPlayer.fighter === 'rock') {
+//   this.winner = this.computerPlayer;
+//   this.computerPlayer.wins ++;
+// } else if (this.humanPlayer.fighter === this.computerPlayer.fighter) {
+//   this.tie = true;
+//   this.winner = {
+//     winner: 'none',
+//     resultText: "draw  😐",
+//   };
+// }
