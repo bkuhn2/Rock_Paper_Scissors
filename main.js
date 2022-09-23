@@ -18,10 +18,13 @@ var classicFightButton = document.querySelector('#fightButton')
 //Event Listeners
 window.addEventListener('load', createGame);
 classicGameButton.addEventListener('click', loadClassicGame);
+// classicFighterQueue.addEventListener('click', function(event) {
+//   humanPlayer.takeTurn(event);
+//   unHideFightButton();
+// });
 classicFighterQueue.addEventListener('click', function(event) {
-  humanPlayer.takeTurn(event);
-  unHideFightButton();
-});
+  selectFighters(event);
+})
 classicFightButton.addEventListener('click', showResultsClassic);
 
 //Functions/Event Handlers
@@ -42,7 +45,13 @@ function createRandomNumber(totalFighters) {
   return Math.floor(Math.random() * totalFighters);
 }
 
-function unHideFightButton() {
+function selectFighters(event) {
+  humanPlayer.takeTurn(event);
+  computerPlayer.generateComputerFighter();
+
+  currentGame.humanFighter = humanPlayer.fighter;
+  currentGame.computerFighter = computerPlayer.fighter;
+  
   classicFightButton.classList.remove('invisible');
 }
 
