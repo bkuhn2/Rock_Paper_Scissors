@@ -1,7 +1,7 @@
 //Global Variables
 var currentGame;
-var humanPlayer;
-var computerPlayer;
+var humanPlayer; //no longer global?
+var computerPlayer; //no longer global?
 var classicTypes = ['rock', 'paper', 'scissors'];
 var spookyTypes = ['skeleton', 'bat', 'ghost', 'scarecrow', 'werewolf'];
 var allFighterTypes = ['rock', 'paper', 'scissors', 'skeleton', 'bat', 'ghost', 'scarecrow', 'werewolf']
@@ -33,10 +33,10 @@ gamePage.addEventListener('click', function(event) {
 });
 
 //Functions/Event Handlers
-function createGame() { // change this so the players spawn on button click and player sectoin reflects player instance
+function createGame() { // change this so the players/game spawn on button click and player sectoin reflects player instance
   humanPlayer = new Player('human', '🤡'); //intead of human here, have place for them to input name, icon
   computerPlayer = new Player('computer', '💻');
-  currentGame = new Game();
+  currentGame = new Game(humanPlayer, computerPlayer);
 }
 
 function createRandomNumber(totalFighters) {
@@ -95,8 +95,8 @@ function selectFighters(event) { //make this FOR BOTH CLASSIC AND SPOOKY
   event.preventDefault(); //necessary?
 
   if (allFighterTypes.includes(event.target.id)) {
-    humanPlayer.takeTurn(event, currentGame);
-    computerPlayer.takeTurn(event, currentGame);
+    currentGame.humanPlayer.takeTurn(event, currentGame.type);
+    currentGame.computerPlayer.takeTurn(event, currentGame.type);
 
     fightButton.classList.remove('invisible'); //<-------instead of a hardwired button, make a new one here? or have a fxn invoked taht does that?
     event.target.classList.add('shake'); //how make only one selected? series of conditoinals?
@@ -107,33 +107,31 @@ function showResults(event) {
   event.preventDefault();
 
   if (event.target.id === 'fightButton') {
-    currentGame.determineWinner(humanPlayer, computerPlayer);
-      console.log(currentGame);
-    // currentGame.humanWins = humanPlayer.wins;
-    // currentGame.computerWins = computerPlayer.wins; //make these game class based
-    humanWinsCount.innerText = humanPlayer.wins;
-    computerWinsCount.innerText = computerPlayer.wins;
+    currentGame.determineWinner();
+    humanWinsCount.innerText = currentGame.humanPlayer.wins;
+    computerWinsCount.innerText = currentGame.computerPlayer.wins;
   }
+  
   if (currentGame.winner === 'human' && event.target.id === 'fightButton') {
     gameArea.innerHTML = '';
     gameArea.innerHTML += `
-    <img id="${currentGame.humanFighter}" class="${currentGame.humanFighter}-image" src="./assets/${currentGame.humanFighter}.png" alt="Rock">
+    <img id="${currentGame.humanPlayer.fighter}" class="${currentGame.humanPlayer.fighter}-image" src="./assets/${currentGame.humanPlayer.fighter}.png" alt="Rock">
     <h2 class="game-choice-prompt">You win</h2>
-    <img id="${currentGame.computerFighter}" class="${currentGame.computerFighter}-image" src="./assets/${currentGame.computerFighter}.png" alt="Question Mark">
+    <img id="${currentGame.computerPlayer.fighter}" class="${currentGame.computerPlayer.fighter}-image" src="./assets/${currentGame.computerPlayer.fighter}.png" alt="Question Mark">
     `
   } else if (currentGame.winner === 'computer' && event.target.id === 'fightButton') {
     gameArea.innerHTML = '';
     gameArea.innerHTML += `
-    <img id="${currentGame.humanFighter}" class="${currentGame.humanFighter}-image" src="./assets/${currentGame.humanFighter}.png" alt="Rock">
+    <img id="${currentGame.humanPlayer.fighter}" class="${currentGame.humanPlayer.fighter}-image" src="./assets/${currentGame.humanPlayer.fighter}.png" alt="Rock">
     <h2 class="game-choice-prompt">You LOSE</h2>
-    <img id="${currentGame.computerFighter}" class="${currentGame.computerFighter}-image" src="./assets/${currentGame.computerFighter}.png" alt="Question Mark">
+    <img id="${currentGame.computerPlayer.fighter}" class="${currentGame.computerPlayer.fighter}-image" src="./assets/${currentGame.computerPlayer.fighter}.png" alt="Question Mark">
     `
   } else if (currentGame.tie && event.target.id === 'fightButton') {
     gameArea.innerHTML = '';
     gameArea.innerHTML += `
-    <img id="${currentGame.humanFighter}" class="${currentGame.humanFighter}-image" src="./assets/${currentGame.humanFighter}.png" alt="Rock">
+    <img id="${currentGame.humanPlayer.fighter}" class="${currentGame.humanPlayer.fighter}-image" src="./assets/${currentGame.humanPlayer.fighter}.png" alt="Rock">
     <h2 class="game-choice-prompt">draw</h2>
-    <img id="${currentGame.computerFighter}" class="${currentGame.computerFighter}-image" src="./assets/${currentGame.computerFighter}.png" alt="Question Mark">
+    <img id="${currentGame.computerPlayer.fighter}" class="${currentGame.computerPlayer.fighter}-image" src="./assets/${currentGame.computerPlayer.fighter}.png" alt="Question Mark">
     `
   }
 //if currentGame.winner=== 'human'
