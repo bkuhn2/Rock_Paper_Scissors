@@ -1,19 +1,17 @@
 class Player {
   constructor(player) {
-    this.playerType = player; //necessary?
-    // this.wins = 0; //do we need this here? or is it best in game?
-    this.fighter = '';
+    this.playerType = player; //change to 'name'???
+    this.wins = 0;
+    // this.fighter = ''; //tracking in Game, per spec???
+    this.token = ''; //i don't have a token - where does this come into game in comp
   }
   takeTurn(event, currentGame) {
     if (this.playerType === 'human') {
-      this.fighter = event.target.id;
-      currentGame.humanFighter = this.fighter; //is this bit necessary to be in both Player and Game?
+      currentGame.humanFighter = event.target.id;
     } else if (this.playerType === 'computer' && currentGame.type === 'classic') {
-      this.fighter = classicTypes[createRandomNumber(classicTypes.length)];
-      currentGame.computerFighter = this.fighter;
+      currentGame.computerFighter = classicTypes[createRandomNumber(classicTypes.length)];
     } else if (this.playerType === 'computer' && currentGame.type === 'spooky') {
-      this.fighter = spookyTypes[createRandomNumber(spookyTypes.length)];
-      currentGame.computerFighter = this.fighter;
+      currentGame.computerFighter = spookyTypes[createRandomNumber(spookyTypes.length)];
     }
   }
 }

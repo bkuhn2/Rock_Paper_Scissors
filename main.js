@@ -92,7 +92,7 @@ function loadSpookyGame() {
 }
 
 function selectFighters(event) { //make this FOR BOTH CLASSIC AND SPOOKY
-  event.preventDefault();
+  event.preventDefault(); //necessary?
 
   if (allFighterTypes.includes(event.target.id)) {
     humanPlayer.takeTurn(event, currentGame);
@@ -105,21 +105,23 @@ function selectFighters(event) { //make this FOR BOTH CLASSIC AND SPOOKY
 
 function showResults(event) {
   event.preventDefault();
+
   if (event.target.id === 'fightButton') {
     currentGame.determineWinner(humanPlayer, computerPlayer);
+      console.log(currentGame);
     // currentGame.humanWins = humanPlayer.wins;
     // currentGame.computerWins = computerPlayer.wins; //make these game class based
-    humanWinsCount.innerText = currentGame.humanWins;
-    computerWinsCount.innerText = currentGame.computerWins;
+    humanWinsCount.innerText = humanPlayer.wins;
+    computerWinsCount.innerText = computerPlayer.wins;
   }
-  if (currentGame.winner.playerType === 'human' && event.target.id === 'fightButton') {
+  if (currentGame.winner === 'human' && event.target.id === 'fightButton') {
     gameArea.innerHTML = '';
     gameArea.innerHTML += `
     <img id="${currentGame.humanFighter}" class="${currentGame.humanFighter}-image" src="./assets/${currentGame.humanFighter}.png" alt="Rock">
     <h2 class="game-choice-prompt">You win</h2>
     <img id="${currentGame.computerFighter}" class="${currentGame.computerFighter}-image" src="./assets/${currentGame.computerFighter}.png" alt="Question Mark">
     `
-  } else if (currentGame.winner.playerType === 'computer' && event.target.id === 'fightButton') {
+  } else if (currentGame.winner === 'computer' && event.target.id === 'fightButton') {
     gameArea.innerHTML = '';
     gameArea.innerHTML += `
     <img id="${currentGame.humanFighter}" class="${currentGame.humanFighter}-image" src="./assets/${currentGame.humanFighter}.png" alt="Rock">

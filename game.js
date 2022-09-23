@@ -1,33 +1,33 @@
 class Game {
-  constructor() { //need pass in two players as arguments??
-    this.humanFighter = ''; //is this redundant??
-    this.computerFighter = ''; //is this redundant??
+  constructor() { //need pass in two players as arguments?? per spec
+    this.humanFighter = '';
+    this.computerFighter = '';
     this.winner = '';
     this.tie = false;
-    this.type = ''; //ie classic or not
-    this.humanWins = 0; //based off player instance but is this redundant???
-    this.computerWins = 0; //based off player instance but is this redundant???
+    this.type = '';
+    // this.humanWins = 0; is this redundant???
+    // this.computerWins = 0; is this redundant???
   }
   determineWinner(human, computer) { //how can we condense this down?
-    if (human.fighter === 'rock' && computer.fighter === 'scissors') {
-      this.winner = human;
-      this.humanWins ++; //change the wins in game here
-    } else if (human.fighter === 'rock' && computer.fighter === 'paper') {
-      this.winner = computer;
-      this.computerWins ++;
-    } else if (human.fighter === 'paper' && computer.fighter === 'rock'){
-      this.winner = human;
-      this.humanWins ++;
-    } else if (human.fighter === 'paper' && computer.fighter === 'scissors') {
-      this.winner = computer;
-      this.computerWins ++;
-    } else if (human.fighter === 'scissors' && computer.fighter === 'paper') {
-      this.winner = human;
-      this.humanWins ++;
-    } else if (human.fighter === 'scissors' && computer.fighter === 'rock') {
-      this.winner = computer;
-      this.computerWins ++;
-    } else if (human.fighter === this.computerFighter) {
+    if (this.humanFighter === 'rock' && this.computerFighter === 'scissors') {
+      this.winner = 'human';
+      human.wins ++;
+    } else if (this.humanFighter === 'rock' && this.computerFighter === 'paper') {
+      this.winner = 'computer';
+      computer.wins ++;
+    } else if (this.humanFighter === 'paper' && this.computerFighter === 'rock'){
+      this.winner = 'human';
+      human.wins ++;
+    } else if (this.humanFighter === 'paper' && this.computerFighter === 'scissors') {
+      this.winner = 'computer';
+      computer.wins ++;
+    } else if (this.humanFighter === 'scissors' && this.computerFighter === 'paper') {
+      this.winner = 'human';
+      human.wins ++;
+    } else if (this.humanFighter === 'scissors' && this.computerFighter === 'rock') {
+      this.winner = 'computer';
+      computer.wins ++;
+    } else if (this.humanFighter === this.computerFighter) {
       this.tie = true;
       this.winner = '';
     }
