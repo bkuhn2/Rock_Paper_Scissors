@@ -21,7 +21,7 @@ var classicFightButton = document.querySelector('#fightButton')
 window.addEventListener('load', createGame);
 classicGameButton.addEventListener('click', loadClassicGame);
 classicFighterQueue.addEventListener('click', function(event) { //will i need to attach to something besides fighter queue?
-  selectClassicFighters(event);
+  selectFightersClassic(event);
 })
 classicFightButton.addEventListener('click', showResultsClassic);
 
@@ -43,9 +43,13 @@ function loadClassicGame() {
   homePage.classList.add('hidden');
 }
 
-function selectClassicFighters(event) {
+function selectFightersClassic(event) {
   humanPlayer.takeTurn(event);
-  computerPlayer.generateComputerFighter(classicTypes);
+  if (currentGame.type === 'classic') {
+    computerPlayer.generateComputerFighter(classicTypes);
+  } else if (currentGame.type === 'spooky') {
+    computerPlayer.generateComputerFighter(spookyTypes);
+  }
 
   currentGame.humanFighter = humanPlayer.fighter;
   currentGame.computerFighter = computerPlayer.fighter;
@@ -56,6 +60,10 @@ function selectClassicFighters(event) {
 
 function showResultsClassic() {
   currentGame.determineWinner(humanPlayer, computerPlayer);
+  currentGame.humanWins = humanPlayer.wins;
+  currentGame.computerWins = computerPlayer.wins;
+
+
 //if currentGame.winner.playerType === 'human'
 //then populate the dom this way
 //else if === computer
