@@ -2,8 +2,9 @@ class Player {
   constructor(player, token) {
     this.name = player;
     this.wins = 0;
+    this.token = token;
     this.fighter = '';
-    this.token = token; //i don't have a token - where does this come into game in comp
+    this.resultText = `${token}  ${player} wins!`
   }
   takeTurn(event, currentType) {
     if (this.name !== 'computer') {

@@ -8,26 +8,29 @@ class Game {
   }
   determineWinner() { //how can we condense this down?
     if (this.humanPlayer.fighter === 'rock' && this.computerPlayer.fighter === 'scissors') {
-      this.winner = 'human';
+      this.winner = this.humanPlayer;
       this.humanPlayer.wins ++;
     } else if (this.humanPlayer.fighter === 'rock' && this.computerPlayer.fighter === 'paper') {
-      this.winner = 'computer';
+      this.winner = this.computerPlayer;
       this.computerPlayer.wins ++;
     } else if (this.humanPlayer.fighter === 'paper' && this.computerPlayer.fighter === 'rock'){
-      this.winner = 'human';
+      this.winner = this.humanPlayer;
       this.humanPlayer.wins ++;
     } else if (this.humanPlayer.fighter === 'paper' && this.computerPlayer.fighter === 'scissors') {
-      this.winner = 'computer';
+      this.winner = this.computerPlayer;
       this.computerPlayer.wins ++;
     } else if (this.humanPlayer.fighter === 'scissors' && this.computerPlayer.fighter === 'paper') {
-      this.winner = 'human';
+      this.winner = this.humanPlayer;
       this.humanPlayer.wins ++;
     } else if (this.humanPlayer.fighter === 'scissors' && this.computerPlayer.fighter === 'rock') {
-      this.winner = 'computer';
+      this.winner = this.computerPlayer;
       this.computerPlayer.wins ++;
     } else if (this.humanPlayer.fighter === this.computerPlayer.fighter) {
       this.tie = true;
-      this.winner = '';
+      this.winner = {
+        winner: 'none',
+        resultText: "draw  😐",
+      };
     }
   }
   resetBoard() {

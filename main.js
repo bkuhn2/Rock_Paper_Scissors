@@ -29,7 +29,7 @@ gamePage.addEventListener('click', function(event) {
   selectFighters(event);
 })
 gamePage.addEventListener('click', function(event) {
-  showResults(event);
+  showResults(event, currentGame);
 });
 
 //Functions/Event Handlers
@@ -56,7 +56,7 @@ function loadClassicGame() {
     <img id="scissors" class="scissors-image" src="./assets/scissors.png" alt="Scissors">
   </div>
   <div class="fighter-instructions">
-    <h2 class="game-choice-prompt">◀  Choose your fighter and <br> click the FIGHT button above</h2>
+    <h2 class="game-text">◀  Choose your fighter and <br> click the FIGHT button above</h2>
   </div>
   <img class="question-mark" src="./assets/questionmark.png" alt="Question Mark">
   `
@@ -81,7 +81,7 @@ function loadSpookyGame() {
     <img id="" class="" src="" alt="">
   </div>
   <div class="fighter-instructions">
-    <h2 class="game-choice-prompt">◀  Choose your fighter</h2>
+    <h2 class="game-text">◀  Choose your fighter and <br> click the FIGHT button above</h2>
   </div>
   <img class="" src="" alt="">
   `
@@ -104,48 +104,17 @@ function selectFighters(event) { //make this FOR BOTH CLASSIC AND SPOOKY
   }
 }
 
-function updateWinNumbers() {
-  humanWinsCount.innerText = currentGame.humanPlayer.wins;
-  computerWinsCount.innerText = currentGame.computerPlayer.wins;
-}
-
-function showResults(event) {
+function showResults(event, currentGame) {
   event.preventDefault();
 
-  if (currentGame.winner === 'human' && event.target.id === 'fightButton') {
-    updateWinNumbers()
+  if (event.target.id === 'fightButton') {
+    humanWinsCount.innerText = currentGame.humanPlayer.wins;
+    computerWinsCount.innerText = currentGame.computerPlayer.wins;
     gameArea.innerHTML = '';
     gameArea.innerHTML += `
     <img id="${currentGame.humanPlayer.fighter}" class="${currentGame.humanPlayer.fighter}-image" src="./assets/${currentGame.humanPlayer.fighter}.png" alt="Rock">
-    <h2 class="game-choice-prompt">You win</h2>
-    <img id="${currentGame.computerPlayer.fighter}" class="${currentGame.computerPlayer.fighter}-image" src="./assets/${currentGame.computerPlayer.fighter}.png" alt="Question Mark">
-    `
-  } else if (currentGame.winner === 'computer' && event.target.id === 'fightButton') {
-    updateWinNumbers()
-    gameArea.innerHTML = '';
-    gameArea.innerHTML += `
-    <img id="${currentGame.humanPlayer.fighter}" class="${currentGame.humanPlayer.fighter}-image" src="./assets/${currentGame.humanPlayer.fighter}.png" alt="Rock">
-    <h2 class="game-choice-prompt">You LOSE</h2>
-    <img id="${currentGame.computerPlayer.fighter}" class="${currentGame.computerPlayer.fighter}-image" src="./assets/${currentGame.computerPlayer.fighter}.png" alt="Question Mark">
-    `
-  } else if (currentGame.tie && event.target.id === 'fightButton') {
-    updateWinNumbers()
-    gameArea.innerHTML = '';
-    gameArea.innerHTML += `
-    <img id="${currentGame.humanPlayer.fighter}" class="${currentGame.humanPlayer.fighter}-image" src="./assets/${currentGame.humanPlayer.fighter}.png" alt="Rock">
-    <h2 class="game-choice-prompt">draw</h2>
+    <h2 class="game-text">${currentGame.winner.resultText}</h2>
     <img id="${currentGame.computerPlayer.fighter}" class="${currentGame.computerPlayer.fighter}-image" src="./assets/${currentGame.computerPlayer.fighter}.png" alt="Question Mark">
     `
   }
-//if currentGame.winner=== 'human'
-//then populate the dom this way
-//else if === computer
-//then populate this way
-//else if currentGame.tie
-//then populate this way
-
-//OR
-//No ifs - just populate to reflect the current Game instance??
-
-//AND update the wins sections accordingly
 }
