@@ -11,22 +11,22 @@ class Game {
   determineWinner(human, computer) { //how can we condense this down?
     if (human.fighter === 'rock' && computer.fighter === 'scissors') {
       this.winner = human;
-      human.wins ++; //change the wins in game here
+      this.humanWins ++; //change the wins in game here
     } else if (human.fighter === 'rock' && computer.fighter === 'paper') {
       this.winner = computer;
-      computer.wins ++;
+      this.computerWins ++;
     } else if (human.fighter === 'paper' && computer.fighter === 'rock'){
       this.winner = human;
-      human.wins ++;
+      this.humanWins ++;
     } else if (human.fighter === 'paper' && computer.fighter === 'scissors') {
       this.winner = computer;
-      computer.wins ++;
+      this.computerWins ++;
     } else if (human.fighter === 'scissors' && computer.fighter === 'paper') {
       this.winner = human;
-      human.wins ++;
+      this.humanWins ++;
     } else if (human.fighter === 'scissors' && computer.fighter === 'rock') {
       this.winner = computer;
-      computer.wins ++;
+      this.computerWins ++;
     } else if (human.fighter === this.computerFighter) {
       this.tie = true;
       this.winner = '';

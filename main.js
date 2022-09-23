@@ -114,8 +114,8 @@ function showResults(event) {
   event.preventDefault();
   if (event.target.id === 'fightButton') {
     currentGame.determineWinner(humanPlayer, computerPlayer);
-    currentGame.humanWins = humanPlayer.wins;
-    currentGame.computerWins = computerPlayer.wins; //make these game class based
+    // currentGame.humanWins = humanPlayer.wins;
+    // currentGame.computerWins = computerPlayer.wins; //make these game class based
     humanWinsCount.innerText = currentGame.humanWins;
     computerWinsCount.innerText = currentGame.computerWins;
   }
