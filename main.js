@@ -95,8 +95,8 @@ function selectFighters(event) { //make this FOR BOTH CLASSIC AND SPOOKY
   event.preventDefault();
   if (allFighterTypes.includes(event.target.id)) {
     humanPlayer.takeTurn(event);
-    currentGame.humanFighter = humanPlayer.fighter; //necessary?
-    fightButton.classList.remove('invisible');
+    currentGame.humanFighter = humanPlayer.fighter; //necessary? happen in take takeTurn fxn with current game as 2nd param?
+    fightButton.classList.remove('invisible'); //<-------instead of a hardwired button, make a new one here? or have a fxn invoked taht does that?
     event.target.classList.add('shake'); //how make only one selected? series of conditoinals?
   }
   if (currentGame.type === 'classic' && allFighterTypes.includes(event.target.id)) {
