@@ -95,24 +95,25 @@ function selectFighters(event) { //make this FOR BOTH CLASSIC AND SPOOKY
   event.preventDefault(); //necessary?
 
   if (allFighterTypes.includes(event.target.id)) {
-    currentGame.humanPlayer.takeTurn(event, currentGame.type);
+    currentGame.humanPlayer.takeTurn(event);
     currentGame.computerPlayer.takeTurn(event, currentGame.type);
+    currentGame.determineWinner();
 
     fightButton.classList.remove('invisible'); //<-------instead of a hardwired button, make a new one here? or have a fxn invoked taht does that?
     event.target.classList.add('shake'); //how make only one selected? series of conditoinals?
   }
 }
 
+function updateWinNumbers() {
+  humanWinsCount.innerText = currentGame.humanPlayer.wins;
+  computerWinsCount.innerText = currentGame.computerPlayer.wins;
+}
+
 function showResults(event) {
   event.preventDefault();
 
-  if (event.target.id === 'fightButton') {
-    currentGame.determineWinner();
-    humanWinsCount.innerText = currentGame.humanPlayer.wins;
-    computerWinsCount.innerText = currentGame.computerPlayer.wins;
-  }
-  
   if (currentGame.winner === 'human' && event.target.id === 'fightButton') {
+    updateWinNumbers()
     gameArea.innerHTML = '';
     gameArea.innerHTML += `
     <img id="${currentGame.humanPlayer.fighter}" class="${currentGame.humanPlayer.fighter}-image" src="./assets/${currentGame.humanPlayer.fighter}.png" alt="Rock">
@@ -120,6 +121,7 @@ function showResults(event) {
     <img id="${currentGame.computerPlayer.fighter}" class="${currentGame.computerPlayer.fighter}-image" src="./assets/${currentGame.computerPlayer.fighter}.png" alt="Question Mark">
     `
   } else if (currentGame.winner === 'computer' && event.target.id === 'fightButton') {
+    updateWinNumbers()
     gameArea.innerHTML = '';
     gameArea.innerHTML += `
     <img id="${currentGame.humanPlayer.fighter}" class="${currentGame.humanPlayer.fighter}-image" src="./assets/${currentGame.humanPlayer.fighter}.png" alt="Rock">
@@ -127,6 +129,7 @@ function showResults(event) {
     <img id="${currentGame.computerPlayer.fighter}" class="${currentGame.computerPlayer.fighter}-image" src="./assets/${currentGame.computerPlayer.fighter}.png" alt="Question Mark">
     `
   } else if (currentGame.tie && event.target.id === 'fightButton') {
+    updateWinNumbers()
     gameArea.innerHTML = '';
     gameArea.innerHTML += `
     <img id="${currentGame.humanPlayer.fighter}" class="${currentGame.humanPlayer.fighter}-image" src="./assets/${currentGame.humanPlayer.fighter}.png" alt="Rock">
