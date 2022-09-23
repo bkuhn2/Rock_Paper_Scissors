@@ -1,10 +1,16 @@
 //Global Variables
 var currentGame;
-var humanPlayer;
-var computerPlayer;
+// var humanPlayer; //no longer global?
+// var computerPlayer; //no longer global? need be global?
 var classicTypes = ['rock', 'paper', 'scissors'];
 var spookyTypes = ['skeleton', 'bat', 'ghost', 'scarecrow', 'werewolf'];
-var allFighterTypes = ['rock', 'paper', 'scissors', 'skeleton', 'bat', 'ghost', 'scarecrow', 'werewolf']
+var allFighterTypes = ['rock', 'paper', 'scissors', 'skeleton', 'bat', 'ghost', 'scarecrow', 'werewolf'];
+var humanWinConditions = [
+  {humanFighter: 'rock', computerFighter: 'scissors'},
+  {humanFighter: 'paper', computerFighter: 'rock'},
+  {humanFighter: 'scissors', computerFighter: 'paper'}
+]
+
 
 //HTML elements
 var homePage = document.querySelector('#homePage');
@@ -29,14 +35,14 @@ gamePage.addEventListener('click', function(event) {
   selectFighters(event);
 })
 gamePage.addEventListener('click', function(event) {
-  showResults(event);
+  showResults(event, currentGame);
 });
 
 //Functions/Event Handlers
-function createGame() {
-  humanPlayer = new Player('human');
-  computerPlayer = new Player('computer');
-  currentGame = new Game();
+function createGame() { // change this so the players/game spawn on button click and player sectoin reflects player instance
+  humanPlayer = new Player('human', '🤡'); //intead of human here, have place for them to input name, icon
+  computerPlayer = new Player('computer', '💻');
+  currentGame = new Game(humanPlayer, computerPlayer);
 }
 
 function createRandomNumber(totalFighters) {
@@ -56,7 +62,7 @@ function loadClassicGame() {
     <img id="scissors" class="scissors-image" src="./assets/scissors.png" alt="Scissors">
   </div>
   <div class="fighter-instructions">
-    <h2 class="game-choice-prompt">◀  Choose your fighter and <br> click the FIGHT button above</h2>
+    <h2 class="game-text">◀  Choose your fighter and <br> click the FIGHT button above</h2>
   </div>
   <img class="question-mark" src="./assets/questionmark.png" alt="Question Mark">
   `
@@ -81,7 +87,7 @@ function loadSpookyGame() {
     <img id="" class="" src="" alt="">
   </div>
   <div class="fighter-instructions">
-    <h2 class="game-choice-prompt">◀  Choose your fighter</h2>
+    <h2 class="game-text">◀  Choose your fighter and <br> click the FIGHT button above</h2>
   </div>
   <img class="" src="" alt="">
   `
@@ -91,63 +97,39 @@ function loadSpookyGame() {
   //change background
 }
 
+
+
+
+
 function selectFighters(event) { //make this FOR BOTH CLASSIC AND SPOOKY
-  event.preventDefault();
+  event.preventDefault(); //necessary?
+
   if (allFighterTypes.includes(event.target.id)) {
-    humanPlayer.takeTurn(event);
-    currentGame.humanFighter = humanPlayer.fighter; //necessary? happen in take takeTurn fxn with current game as 2nd param?
+    currentGame.humanPlayer.takeTurn(event);
+    currentGame.computerPlayer.takeTurn(event, currentGame.type);
+    currentGame.determineWinner();
+
     fightButton.classList.remove('invisible'); //<-------instead of a hardwired button, make a new one here? or have a fxn invoked taht does that?
-    event.target.classList.add('shake'); //how make only one selected? series of conditoinals?
-  }
-  if (currentGame.type === 'classic' && allFighterTypes.includes(event.target.id)) {
-    computerPlayer.generateComputerFighter(classicTypes);
-    currentGame.computerFighter = computerPlayer.fighter;
-  } else if (currentGame.type === 'spooky' && allFighterTypes.includes(event.target.id)) {
-    computerPlayer.generateComputerFighter(spookyTypes);
-    currentGame.computerFighter = computerPlayer.fighter; //necessary?
+
+    event.target.classList.add('shake');
+    setTimeout(removeShake, 2000) //need be in variable?
+    function removeShake() {
+      event.target.classList.remove('shake') //does event need be a param???
+    }
   }
 }
 
-function showResults(event) {
+function showResults(event, currentGame) {
   event.preventDefault();
+
   if (event.target.id === 'fightButton') {
-    currentGame.determineWinner(humanPlayer, computerPlayer);
-    // currentGame.humanWins = humanPlayer.wins;
-    // currentGame.computerWins = computerPlayer.wins; //make these game class based
-    humanWinsCount.innerText = currentGame.humanWins;
-    computerWinsCount.innerText = currentGame.computerWins;
-  }
-  if (currentGame.winner.playerType === 'human' && event.target.id === 'fightButton') {
+    humanWinsCount.innerText = currentGame.humanPlayer.wins;
+    computerWinsCount.innerText = currentGame.computerPlayer.wins;
     gameArea.innerHTML = '';
     gameArea.innerHTML += `
-    <img id="${currentGame.humanFighter}" class="${currentGame.humanFighter}-image" src="./assets/${currentGame.humanFighter}.png" alt="Rock">
-    <h2 class="game-choice-prompt">You win</h2>
-    <img id="${currentGame.computerFighter}" class="${currentGame.computerFighter}-image" src="./assets/${currentGame.computerFighter}.png" alt="Question Mark">
-    `
-  } else if (currentGame.winner.playerType === 'computer' && event.target.id === 'fightButton') {
-    gameArea.innerHTML = '';
-    gameArea.innerHTML += `
-    <img id="${currentGame.humanFighter}" class="${currentGame.humanFighter}-image" src="./assets/${currentGame.humanFighter}.png" alt="Rock">
-    <h2 class="game-choice-prompt">You LOSE</h2>
-    <img id="${currentGame.computerFighter}" class="${currentGame.computerFighter}-image" src="./assets/${currentGame.computerFighter}.png" alt="Question Mark">
-    `
-  } else if (currentGame.tie && event.target.id === 'fightButton') {
-    gameArea.innerHTML = '';
-    gameArea.innerHTML += `
-    <img id="${currentGame.humanFighter}" class="${currentGame.humanFighter}-image" src="./assets/${currentGame.humanFighter}.png" alt="Rock">
-    <h2 class="game-choice-prompt">draw</h2>
-    <img id="${currentGame.computerFighter}" class="${currentGame.computerFighter}-image" src="./assets/${currentGame.computerFighter}.png" alt="Question Mark">
+    <img id="${currentGame.humanPlayer.fighter}" class="${currentGame.humanPlayer.fighter}-image" src="./assets/${currentGame.humanPlayer.fighter}.png" alt="Rock">
+    <h2 class="game-text">${currentGame.winner.resultText}</h2>
+    <img id="${currentGame.computerPlayer.fighter}" class="${currentGame.computerPlayer.fighter}-image" src="./assets/${currentGame.computerPlayer.fighter}.png" alt="Question Mark">
     `
   }
-//if currentGame.winner.playerType === 'human'
-//then populate the dom this way
-//else if === computer
-//then populate this way
-//else if currentGame.tie
-//then populate this way
-
-//OR
-//No ifs - just populate to reflect the current Game instance??
-
-//AND update the wins sections accordingly
 }

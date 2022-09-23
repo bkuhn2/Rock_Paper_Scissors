@@ -1,38 +1,87 @@
 class Game {
-  constructor() { //need pass in two players as arguments??
-    this.humanFighter = ''; //is this redundant??
-    this.computerFighter = ''; //is this redundant??
+  constructor(human, computer) { //need pass in two players as arguments?? per spec
+    this.humanPlayer = human;
+    this.computerPlayer = computer;
     this.winner = '';
     this.tie = false;
-    this.type = ''; //ie classic or not
-    this.humanWins = 0; //based off player instance but is this redundant???
-    this.computerWins = 0; //based off player instance but is this redundant???
+    this.type = '';
   }
-  determineWinner(human, computer) { //how can we condense this down?
-    if (human.fighter === 'rock' && computer.fighter === 'scissors') {
-      this.winner = human;
-      this.humanWins ++; //change the wins in game here
-    } else if (human.fighter === 'rock' && computer.fighter === 'paper') {
-      this.winner = computer;
-      this.computerWins ++;
-    } else if (human.fighter === 'paper' && computer.fighter === 'rock'){
-      this.winner = human;
-      this.humanWins ++;
-    } else if (human.fighter === 'paper' && computer.fighter === 'scissors') {
-      this.winner = computer;
-      this.computerWins ++;
-    } else if (human.fighter === 'scissors' && computer.fighter === 'paper') {
-      this.winner = human;
-      this.humanWins ++;
-    } else if (human.fighter === 'scissors' && computer.fighter === 'rock') {
-      this.winner = computer;
-      this.computerWins ++;
-    } else if (human.fighter === this.computerFighter) {
+
+  determineWinner() { //is there a better way?
+    // if (this.humanPlayer.fighter === this.computerPlayer.fighter) {
+    //   this.tie = true;
+    //   this.winner = {
+    //     winner: 'none',
+    //     resultText: 'draw  😐',
+    //   };
+    //   return //necessary?
+    // }
+    //
+    // for (var i = 0; i < humanWinConditions.length; i++) {
+    //   if (humanWinConditions[i].humanFighter === this.humanPlayer.fighter && humanWinConditions[i].computerFighter === this.computerPlayer.fighter) {
+    //     this.winner = this.humanPlayer;
+    //     this.humanPlayer.wins ++;
+    //     return //necessary?
+    //   }
+    // }
+    //
+    // this.winner = this.computerPlayer;
+    // this.computerPlayer.wins ++;
+    if (this.humanPlayer.fighter === this.computerPlayer.fighter) {
       this.tie = true;
-      this.winner = '';
+        this.winner = {
+          winner: 'none',
+          resultText: "draw  😐",
+        };
+    } else if (this.humanPlayer.fighter === 'rock' && this.computerPlayer.fighter === 'scissors') {
+      this.winner = this.humanPlayer;
+      this.humanPlayer.wins ++;
+    } else if (this.humanPlayer.fighter === 'paper' && this.computerPlayer.fighter === 'rock') {
+      this.winner = this.humanPlayer;
+      this.humanPlayer.wins ++;
+    } else if (this.humanPlayer.fighter === 'scissors' && this.computerPlayer.fighter === 'paper') {
+      this.winner = this.humanPlayer;
+      this.humanPlayer.wins ++;
+    } else {
+      this.winner = this.computerPlayer;
+      this.computerPlayer.wins ++;
     }
+
   }
+
   resetBoard() {
+    //reset humanPlayer.fighter
+    //reset computerPlayer.fighter
+    //reset this. winner ''
+    //reset this.tie
 
   }
 }
+
+
+//OLD WORKING DETERMINE WINNER CODE, BUT TOO LONG
+// if (this.humanPlayer.fighter === 'rock' && this.computerPlayer.fighter === 'scissors') {
+//   this.winner = this.humanPlayer;
+//   this.humanPlayer.wins ++;
+// } else if (this.humanPlayer.fighter === 'rock' && this.computerPlayer.fighter === 'paper') {
+//   this.winner = this.computerPlayer;
+//   this.computerPlayer.wins ++;
+// } else if (this.humanPlayer.fighter === 'paper' && this.computerPlayer.fighter === 'rock'){
+//   this.winner = this.humanPlayer;
+//   this.humanPlayer.wins ++;
+// } else if (this.humanPlayer.fighter === 'paper' && this.computerPlayer.fighter === 'scissors') {
+//   this.winner = this.computerPlayer;
+//   this.computerPlayer.wins ++;
+// } else if (this.humanPlayer.fighter === 'scissors' && this.computerPlayer.fighter === 'paper') {
+//   this.winner = this.humanPlayer;
+//   this.humanPlayer.wins ++;
+// } else if (this.humanPlayer.fighter === 'scissors' && this.computerPlayer.fighter === 'rock') {
+//   this.winner = this.computerPlayer;
+//   this.computerPlayer.wins ++;
+// } else if (this.humanPlayer.fighter === this.computerPlayer.fighter) {
+//   this.tie = true;
+//   this.winner = {
+//     winner: 'none',
+//     resultText: "draw  😐",
+//   };
+// }

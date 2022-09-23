@@ -1,13 +1,18 @@
 class Player {
-  constructor(player) {
-    this.playerType = player; //necessary?
-    // this.wins = 0; //do we need this here? or is it best in game?
+  constructor(player, token) {
+    this.name = player;
+    this.wins = 0;
+    this.token = token;
     this.fighter = '';
+    this.resultText = `${token} ${player} wins!`
   }
-  takeTurn(event) {
-    this.fighter = event.target.id;
-  }
-  generateComputerFighter(gameTypeArray) {
-    this.fighter = gameTypeArray[createRandomNumber(gameTypeArray.length)];
+  takeTurn(event, currentType) {
+    if (this.name !== 'computer') {
+      this.fighter = event.target.id;
+    } else if (currentType === 'classic') {
+      this.fighter = classicTypes[createRandomNumber(classicTypes.length)];
+    } else if (currentType === 'spooky') {
+      this.fighter = spookyTypes[createRandomNumber(spookyTypes.length)];
+    }
   }
 }

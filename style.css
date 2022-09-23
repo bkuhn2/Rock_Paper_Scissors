@@ -113,7 +113,7 @@ h2 {
   justify-content: flex-start;
 }
 
-.game-choice-prompt {
+.game-text {
   /* border-width: 25px;
   border: orange;
   border-style: solid; */
@@ -196,7 +196,7 @@ h2 {
 }
 
 .shake {
-  animation: shake 2s;
+  animation: shake 0.4s;
   animation-iteration-count: 2;
 }
 
