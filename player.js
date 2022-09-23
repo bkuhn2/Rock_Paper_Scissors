@@ -1,16 +1,16 @@
 class Player {
-  constructor(player) {
-    this.playerType = player; //change to 'name'???
+  constructor(player, token) {
+    this.name = player;
     this.wins = 0;
     // this.fighter = ''; //tracking in Game, per spec???
-    this.token = ''; //i don't have a token - where does this come into game in comp
+    this.token = token; //i don't have a token - where does this come into game in comp
   }
   takeTurn(event, currentGame) {
-    if (this.playerType === 'human') {
+    if (this.name !== 'computer') {
       currentGame.humanFighter = event.target.id;
-    } else if (this.playerType === 'computer' && currentGame.type === 'classic') {
+    } else if (currentGame.type === 'classic') {
       currentGame.computerFighter = classicTypes[createRandomNumber(classicTypes.length)];
-    } else if (this.playerType === 'computer' && currentGame.type === 'spooky') {
+    } else if (currentGame.type === 'spooky') {
       currentGame.computerFighter = spookyTypes[createRandomNumber(spookyTypes.length)];
     }
   }

@@ -33,9 +33,9 @@ gamePage.addEventListener('click', function(event) {
 });
 
 //Functions/Event Handlers
-function createGame() {
-  humanPlayer = new Player('human');
-  computerPlayer = new Player('computer');
+function createGame() { // change this so the players spawn on button click and player sectoin reflects player instance
+  humanPlayer = new Player('human', '🤡'); //intead of human here, have place for them to input name, icon
+  computerPlayer = new Player('computer', '💻');
   currentGame = new Game();
 }
 
@@ -136,7 +136,7 @@ function showResults(event) {
     <img id="${currentGame.computerFighter}" class="${currentGame.computerFighter}-image" src="./assets/${currentGame.computerFighter}.png" alt="Question Mark">
     `
   }
-//if currentGame.winner.playerType === 'human'
+//if currentGame.winner=== 'human'
 //then populate the dom this way
 //else if === computer
 //then populate this way
