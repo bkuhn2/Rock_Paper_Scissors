@@ -12,20 +12,22 @@ var classicGameButton = document.querySelector('#classicGameButton');
 var spookyGameButton = document.querySelector('#spookyGameButton');
 
 var gamePage = document.querySelector('#gamePage');
-var classicFighterQueue = document.querySelector('.fighter-display') //will this be gone, DOM problems on reset?
-var classicRock = document.querySelector('#rock');
-var classicPaper = document.querySelector('#paper');
-var classicScissors = document.querySelector('#scissors');
-var classicFightButton = document.querySelector('#fightButton')
+// var classicFighterQueue = document.querySelector('.fighter-display') //will this be gone, DOM problems on reset?
+// var classicRock = document.querySelector('#rock'); am i using these? should i be?
+// var classicPaper = document.querySelector('#paper');
+// var classicScissors = document.querySelector('#scissors');
+var fightButton = document.querySelector('#fightButton')
 
 //Event Listeners
 window.addEventListener('load', createGame);
 classicGameButton.addEventListener('click', loadClassicGame);
 spookyGameButton.addEventListener('click', loadSpookyGame)
-gamePage.addEventListener('click', function(event) { //will i need to attach to something besides fighter queue?
-  selectFightersClassic(event);
+gamePage.addEventListener('click', function(event) {
+  selectFighters(event);
 })
-gamePage.addEventListener('click', showResults);
+gamePage.addEventListener('click', function(event) {
+  showResults(event);
+});
 
 //Functions/Event Handlers
 function createGame() {
@@ -58,33 +60,36 @@ function loadSpookyGame() {
   //change header to say spooky
   //add rules
   //add button to change games, restart(?)
+  //change background
 }
 
-function selectFightersClassic(event) { //make this FOR BOTH CLASSIC AND SPOOKY
+function selectFighters(event) { //make this FOR BOTH CLASSIC AND SPOOKY
   if (allFighterTypes.includes(event.target.id)) {
-
     humanPlayer.takeTurn(event);
-    if (currentGame.type === 'classic') {
-      computerPlayer.generateComputerFighter(classicTypes);
-    } else if (currentGame.type === 'spooky') {
-      computerPlayer.generateComputerFighter(spookyTypes);
-    }
-
-    currentGame.humanFighter = humanPlayer.fighter;
-    currentGame.computerFighter = computerPlayer.fighter;
-
-    classicFightButton.classList.remove('invisible');
+    currentGame.humanFighter = humanPlayer.fighter; //necessary?
+    fightButton.classList.remove('invisible');
     event.target.classList.add('shake'); //how make only one selected? series of conditoinals?
   }
+
+  if (currentGame.type === 'classic' && allFighterTypes.includes(event.target.id)) {
+    computerPlayer.generateComputerFighter(classicTypes);
+    currentGame.computerFighter = computerPlayer.fighter;
+  } else if (currentGame.type === 'spooky' && allFighterTypes.includes(event.target.id)) {
+    computerPlayer.generateComputerFighter(spookyTypes);
+    currentGame.computerFighter = computerPlayer.fighter; //necessary?
+  }
+
+
 }
 
-function showResults() {
+function showResults(event) {
 if (event.target.id === 'fightButton') {
   currentGame.determineWinner(humanPlayer, computerPlayer);
   currentGame.humanWins = humanPlayer.wins;
   currentGame.computerWins = computerPlayer.wins;
 
-  console.log(createRandomNumber(1000));
+
+
 }
 
 //if currentGame.winner.playerType === 'human'
