@@ -56,7 +56,7 @@ function loadClassicGame() {
     <img id="scissors" class="scissors-image" src="./assets/scissors.png" alt="Scissors">
   </div>
   <div class="fighter-instructions">
-    <h2 class="game-choice-prompt">◀  Choose your fighter</h2>
+    <h2 class="game-choice-prompt">◀  Choose your fighter and <br> click the FIGHT button above</h2>
   </div>
   <img class="question-mark" src="./assets/questionmark.png" alt="Question Mark">
   `
@@ -106,8 +106,6 @@ function selectFighters(event) { //make this FOR BOTH CLASSIC AND SPOOKY
     computerPlayer.generateComputerFighter(spookyTypes);
     currentGame.computerFighter = computerPlayer.fighter; //necessary?
   }
-
-
 }
 
 function showResults(event) {
