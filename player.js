@@ -1,14 +1,13 @@
 class Player {
   constructor(player) {
-    this.playerType = player;
-    this.wins = 0;
+    this.playerType = player; //necessary?
+    this.wins = 0; //do we need this here? or is it best in game?
     this.fighter = '';
   }
   takeTurn(event) {
     this.fighter = event.target.id;
   }
-  generateComputerFighter() {
-    var classicTypes = ['rock', 'paper', 'scissors'];
-    this.fighter = classicTypes[createRandomNumber(classicTypes.length)];
+  generateComputerFighter(gameTypeArray) {
+    this.fighter = gameTypeArray[createRandomNumber(gameTypeArray.length)];
   }
 }

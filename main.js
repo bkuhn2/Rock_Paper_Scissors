@@ -2,6 +2,8 @@
 var currentGame;
 var humanPlayer;
 var computerPlayer;
+var classicTypes = ['rock', 'paper', 'scissors'];
+var spookyTypes = [];
 
 //HTML elements
 var homePage = document.querySelector('#homePage');
@@ -9,7 +11,7 @@ var classicGameButton = document.querySelector('#classicGameButton');
 var spookyGameButton = document.querySelector('#spookyGameButton');
 
 var classicGamePage = document.querySelector('#classicGamePage');
-var classicFighterQueue = document.querySelector('.fighter-display')
+var classicFighterQueue = document.querySelector('.fighter-display') //will this be gone, DOM problems on reset?
 var classicRock = document.querySelector('#rock');
 var classicPaper = document.querySelector('#paper');
 var classicScissors = document.querySelector('#scissors');
@@ -18,12 +20,8 @@ var classicFightButton = document.querySelector('#fightButton')
 //Event Listeners
 window.addEventListener('load', createGame);
 classicGameButton.addEventListener('click', loadClassicGame);
-// classicFighterQueue.addEventListener('click', function(event) {
-//   humanPlayer.takeTurn(event);
-//   unHideFightButton();
-// });
-classicFighterQueue.addEventListener('click', function(event) {
-  selectFighters(event);
+classicFighterQueue.addEventListener('click', function(event) { //will i need to attach to something besides fighter queue?
+  selectClassicFighters(event);
 })
 classicFightButton.addEventListener('click', showResultsClassic);
 
@@ -34,6 +32,10 @@ function createGame() {
   currentGame = new Game();
 }
 
+function createRandomNumber(totalFighters) {
+  return Math.floor(Math.random() * totalFighters);
+}
+
 function loadClassicGame() {
   currentGame.type = 'classic';
 
@@ -41,18 +43,15 @@ function loadClassicGame() {
   homePage.classList.add('hidden');
 }
 
-function createRandomNumber(totalFighters) {
-  return Math.floor(Math.random() * totalFighters);
-}
-
-function selectFighters(event) {
+function selectClassicFighters(event) {
   humanPlayer.takeTurn(event);
-  computerPlayer.generateComputerFighter();
+  computerPlayer.generateComputerFighter(classicTypes);
 
   currentGame.humanFighter = humanPlayer.fighter;
   currentGame.computerFighter = computerPlayer.fighter;
-  
+
   classicFightButton.classList.remove('invisible');
+  event.target.classList.add('shake');
 }
 
 function showResultsClassic() {
