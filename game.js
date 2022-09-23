@@ -8,7 +8,7 @@ class Game {
     this.humanWins = 0; //based off player instance but is this redundant???
     this.computerWins = 0; //based off player instance but is this redundant???
   }
-  determineWinner(human, computer) {
+  determineWinner(human, computer) { //how can we condense this down?
     if (human.fighter === 'rock' && computer.fighter === 'scissors') {
       this.winner = human;
       human.wins ++;
