@@ -235,6 +235,12 @@ dl {
   60% { transform: translate(-3px, 1px) rotate(0deg); }
 }
 
+.spooky-background {
+  background-image:
+  linear-gradient(0deg, rgba(17,17,17,0.76) 0%, rgba(48,48,48,0.04) 54%),
+  url("./assets/spooky.jpg");
+}
+
 /* Hidden styles */
 
 .hidden {

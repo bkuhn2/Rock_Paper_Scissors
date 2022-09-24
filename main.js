@@ -79,6 +79,7 @@ function loadSpookyGame() {
   currentGame.type = 'spooky';
 
   gamePage.classList.remove('hidden');
+  gamePage.classList.add('spooky-background')
   homePage.classList.add('hidden');
 
   gameHeader.innerText = `${currentGame.type.charAt(0).toUpperCase() + currentGame.type.slice(1)} Game`;
@@ -105,9 +106,6 @@ function loadSpookyGame() {
     </div>
     <img class="" src="" alt="">
   `
-  //add rules
-  //add button to change games, restart(?)
-  //change background
 }
 
 
