@@ -8,25 +8,26 @@ class Game {
   }
 
   determineWinner() { //is there a better way?
-    if (this.humanPlayer.fighter === this.computerPlayer.fighter) {
+    if (this.humanPlayer.fighter.type === this.computerPlayer.fighter.type) {
       this.tie = true;
       this.winner = {
         winner: 'none',
         resultText: 'draw  😐',
       };
-      return //necessary?
+      return; //necessary?
     }
 
-    for (var i = 0; i < humanWinConditions.length; i++) {
-      if (humanWinConditions[i].humanFighter === this.humanPlayer.fighter && humanWinConditions[i].computerFighter === this.computerPlayer.fighter) {
+    for (var i = 0; i < humanWinConditions[currentGame.type].length; i++) {
+      if (humanWinConditions[currentGame.type][i].humanFighter === this.humanPlayer.fighter.type && humanWinConditions[currentGame.type][i].computerFighter === this.computerPlayer.fighter.type) {
         this.winner = this.humanPlayer;
         this.humanPlayer.wins ++;
-        return //necessary?
+        return; //necessary?
       }
     }
 
     this.winner = this.computerPlayer;
     this.computerPlayer.wins ++;
+    
     // if (this.humanPlayer.fighter === this.computerPlayer.fighter) {
     //   this.tie = true;
     //     this.winner = {

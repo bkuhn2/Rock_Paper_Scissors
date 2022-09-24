@@ -2,14 +2,25 @@
 var currentGame;
 // var humanPlayer; //no longer global?
 // var computerPlayer; //no longer global? need be global?
-var classicTypes = ['rock', 'paper', 'scissors'];
-var spookyTypes = ['skeleton', 'bat', 'ghost', 'scarecrow', 'werewolf'];
-var allFighterTypes = ['rock', 'paper', 'scissors', 'skeleton', 'bat', 'ghost', 'scarecrow', 'werewolf'];
-var humanWinConditions = [
-  {humanFighter: 'rock', computerFighter: 'scissors'},
+// var classicTypes = ['rock', 'paper', 'scissors'];
+// var spookyTypes = ['skeleton', 'bat', 'ghost', 'scarecrow', 'werewolf'];
+// var allFighterTypes = ['rock', 'paper', 'scissors', 'skeleton', 'bat', 'ghost', 'scarecrow', 'werewolf'];
+
+var fighterTypes = {
+  classic: [{type: 'rock', img: ''},
+  {type: 'paper', img: ''},
+  {type: 'scissors', img: ''}],
+  spooky: [{type: 'skeleton', img: ''},
+  {type: 'bat', img: ''},
+  {type: 'ghost', img: ''},
+  {type: 'scarecrow', img: ''},
+  {type: 'werewolf', img: ''}]
+};
+var humanWinConditions = {
+  classic: [{humanFighter: 'rock', computerFighter: 'scissors'},
   {humanFighter: 'paper', computerFighter: 'rock'},
-  {humanFighter: 'scissors', computerFighter: 'paper'},
-  {humanFighter: 'skeleton', computerFighter: 'ghost'},
+  {humanFighter: 'scissors', computerFighter: 'paper'}],
+  spooky: [{humanFighter: 'skeleton', computerFighter: 'ghost'},
   {humanFighter: 'skeleton', computerFighter: 'scarecrow'},
   {humanFighter: 'werewolf', computerFighter: 'skeleton'},
   {humanFighter: 'werewolf', computerFighter: 'bat'},
@@ -18,8 +29,18 @@ var humanWinConditions = [
   {humanFighter: 'scarecrow', computerFighter: 'werewolf'},
   {humanFighter: 'scarecrow', computerFighter: 'bat'},
   {humanFighter: 'bat', computerFighter: 'ghost'},
-  {humanFighter: 'bat', computerFighter: 'skeleton'}
-]
+  {humanFighter: 'bat', computerFighter: 'skeleton'}]
+};
+var ruleData = {
+  classic: [{winner: 'Rock', loser: 'scissors'},
+  {winner: 'Scissors', loser: 'paper'},
+  {winner: 'Paper', loser: 'rock'}],
+  spooky: [{winner: 'Skeleton', loser: 'ghost, scarecrow'},
+  {winner: 'Werewolf', loser: 'skeleton, bat'},
+  {winner: 'Ghost', loser: 'werewolf, scarecrow'},
+  {winner: 'Scarecrow', loser: 'werewolf, bat'},
+  {winner: 'Bat', loser: 'ghost, skeleton'}]
+}
 
 
 //HTML elements
@@ -40,7 +61,7 @@ window.addEventListener('load', createGame);
 classicGameButton.addEventListener('click', loadClassicGame);
 spookyGameButton.addEventListener('click', loadSpookyGame)
 gamePage.addEventListener('click', function(event) {
-  selectFighters(event);
+  selectFighters(event, currentGame);
 })
 gamePage.addEventListener('click', function(event) {
   showResults(event, currentGame);
@@ -50,7 +71,7 @@ changeGameButton.addEventListener('click', loadChangeGameOptions)
 //Functions/Event Handlers
 function createGame() { // change this so the players/game spawn on button click and player sectoin reflects player instance
   humanPlayer = new Player('human', '🤡'); //intead of human here, have place for them to input name, icon
-  computerPlayer = new Player('computer', '💻');
+  computerPlayer = new Player('Computer', '💻');
   currentGame = new Game(humanPlayer, computerPlayer);
 }
 
@@ -119,12 +140,17 @@ function loadSpookyGame() {
   `
 }
 
-function selectFighters(event) { //make this FOR BOTH CLASSIC AND SPOOKY
+function selectFighters(event, currentGame) {
   event.preventDefault(); //necessary?
 
-  if (allFighterTypes.includes(event.target.id)) {
-    currentGame.humanPlayer.takeTurn(event);
-    currentGame.computerPlayer.takeTurn(event, currentGame.type);
+  var currentFighterTypes = [];
+  for (var i = 0; i < fighterTypes[currentGame.type].length; i++) {
+    currentFighterTypes.push(fighterTypes[currentGame.type][i].type)
+  }
+
+  if (currentFighterTypes.includes(event.target.id)) { //instead, make an array out of fighterTYpes??
+    currentGame.humanPlayer.takeTurn(event, currentGame); //add currentGame arguments
+    currentGame.computerPlayer.takeTurn(event, currentGame); //make just currentGame
 
     event.target.parentElement.nextElementSibling.innerHTML = '';
     event.target.parentElement.nextElementSibling.innerHTML += `
@@ -170,6 +196,6 @@ function showResults(event, currentGame) {
 function loadChangeGameOptions() {
   gamePage.classList.add('hidden');
   homePage.classList.remove('hidden');
-  gamePage.classList.remove('spooky-background')
+  gamePage.classList.remove('spooky-background') //also remove main, make main background its own css property/class
   //make my input form stuff INVISIBLE HERE, when i do it
 }
