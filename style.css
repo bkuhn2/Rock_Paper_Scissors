@@ -100,6 +100,7 @@ h2 {
   linear-gradient(0deg, rgba(17,17,17,0.76) 0%, rgba(48,48,48,0.04) 54%),
   url("./assets/blacktexture.jpg");
   border-radius: 10px;
+  min-width: 1050px;
 }
 
 .choose-game-area {
@@ -227,6 +228,10 @@ dl {
   margin-left: 22px;
 }
 
+.bat-image {
+  width: 260px;
+}
+
 .scissors-image {
   margin-top: -50px;
 }
@@ -235,6 +240,7 @@ dl {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 440px;
 }
 
 .question-mark {
@@ -251,7 +257,7 @@ dl {
   width: 339px;
   margin-right: -96px;
   margin-left: -31px;
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 .shake {

@@ -8,8 +8,8 @@ var allFighterTypes = ['rock', 'paper', 'scissors', 'skeleton', 'bat', 'ghost', 
 var humanWinConditions = [
   {humanFighter: 'rock', computerFighter: 'scissors'},
   {humanFighter: 'paper', computerFighter: 'rock'},
-  {humanFighter: 'scissors', computerFighter: 'paper'}
-  {humanFighter: 'skeleton', computerFighter: 'ghost'}
+  {humanFighter: 'scissors', computerFighter: 'paper'},
+  {humanFighter: 'skeleton', computerFighter: 'ghost'},
   {humanFighter: 'skeleton', computerFighter: 'scarecrow'},
   {humanFighter: 'werewolf', computerFighter: 'skeleton'},
   {humanFighter: 'werewolf', computerFighter: 'bat'},
