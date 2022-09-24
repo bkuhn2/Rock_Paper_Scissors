@@ -197,12 +197,34 @@ dl {
   align-items: center;
 }
 
+.spooky-fighter-display {
+  height: 751px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-right: 102px;
+}
+
 .rock-image,
 .paper-image,
 .scissors-image {
   height: 182px;
   width: 190px;
   cursor: pointer;
+}
+
+.skeleton-image,
+.bat-image,
+.scarecrow-image,
+.ghost-image,
+.werewolf-image {
+  height: 237px;
+  width: 219px;
+  cursor: pointer;
+  margin-left: 22px;
 }
 
 .scissors-image {
@@ -222,6 +244,14 @@ dl {
   height: 283px;
   width: 182px;
   margin-right: -3px;
+}
+
+.blood-splatter {
+  height: 300px;
+  width: 339px;
+  margin-right: -96px;
+  margin-left: -31px;
+  opacity: 0.7;
 }
 
 .shake {

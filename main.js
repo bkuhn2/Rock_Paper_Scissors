@@ -95,17 +95,17 @@ function loadSpookyGame() {
   gameArea.innerHTML = '';
   gameArea.innerHTML += `
     <div class="spooky-fighter-display">
-      <img id="" class="" src="" alt="">
-      <img id="" class="" src="" alt="">
-      <img id="" class="" src="" alt="">
-      <img id="" class="" src="" alt="">
-      <img id="" class="" src="" alt="">
+      <img id="skeleton" class="skeleton-image" src="./assets/skeleton.png" alt="Spooky boi">
+      <img id="bat" class="bat-image" src="./assets/bat.png" alt="Lazlo">
+      <img id="scarecrow" class="scarecrow-image" src="./assets/scarecrow.png" alt="Dr. Crane">
+      <img id="ghost" class="ghost-image" src="./assets/ghost.png" alt="G-g-g-ghost!">
+      <img id="werewolf" class="werewolf-image" src="./assets/werewolf.png" alt="Awooooo">
     </div>
     <div class="fighter-instructions">
       <h2 class="game-text">◀︎  Choose your fighter and <br> click the FIGHT button ▼</h2>
       <button class="invisible" type="button" alt="here-for-formatting">FIGHT</button>
     </div>
-    <img class="" src="" alt="">
+    <img class="blood-splatter" src="./assets/blood.png" alt="Blood Spatter">
   `
 }
 
