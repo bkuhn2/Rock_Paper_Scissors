@@ -18,6 +18,7 @@ header {
   width: 100%;
   margin: 10px;
   margin-bottom: 40px;
+  background: #00000036;
 
 }
 
@@ -118,10 +119,10 @@ h2 {
   border: orange;
   border-style: solid; */
   margin: 44px;
-  background: #1b1b1957;
-  border-radius: 7px;
+  background: #13131359;
+  border-radius: 50px;
   color: #b75250;
-  border-width: 1px;
+  border-width: 5px;
   border-color: #120e0e73;
   border-style: solid;
 }
@@ -140,25 +141,33 @@ h2 {
 /* Game Page Elements */
 
 dl {
-  border: black;
+  border: #acacac40;
   border-style: solid;
-  width: 208px;
-  height: 100px;
-  margin-top: 21px;
+  width: 176px;
+  height: 121px;
+  margin-top: 14px;
   margin-right: -35px;
-  margin-left: -67px;
+  margin-left: -58px;
+  margin-bottom: 17px;
+          /* consolidate all this margin stuff? */
   color: #EBE9D7;
-  font-size: 0.54em;
+  font-size: 0.53em;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   border-radius: 12px;
-  background: #160c0c99;
+  background: #2a2a2a99;
+  border-width: 2px;
 }
 
-.home-button {
-
+.change-game-button {
+  font-size: .6em;
+  height: 50px;
+  width: 134px;
+  margin-right: -34px;
+  background: rgb(31,30,30);
+  background: linear-gradient(150deg, rgba(31,30,30,1) 0%, rgba(200,200,200,1) 66%);
 }
 
 .fight-button {
