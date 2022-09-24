@@ -22,11 +22,8 @@ var computerWinsCount = document.querySelector('#computerWinsCount')
 var gamePage = document.querySelector('#gamePage');
 var gameHeader = document.querySelector('#gameHeader');
 var gameArea = document.querySelector('.play-game-area');
-// var classicFighterQueue = document.querySelector('.fighter-display') //will this be gone, DOM problems on reset?
-// var classicRock = document.querySelector('#rock'); am i using these? should i be?
-// var classicPaper = document.querySelector('#paper');
-// var classicScissors = document.querySelector('#scissors');
-var fightButton = document.querySelector('#fightButton')
+var gameRules = document.querySelector('dl');
+var changeGameButton = document.querySelector('#changeGameButton')
 
 //Event Listeners
 window.addEventListener('load', createGame);
@@ -53,47 +50,60 @@ function createRandomNumber(totalFighters) {
 function loadClassicGame() {
   currentGame.type = 'classic';
 
-  gameHeader.innerText = `${currentGame.type.charAt(0).toUpperCase() + currentGame.type.slice(1)} Game`;
   gamePage.classList.remove('hidden');
   homePage.classList.add('hidden');
+
+  gameHeader.innerText = `${currentGame.type.charAt(0).toUpperCase() + currentGame.type.slice(1)} Game`;
+  gameRules.innerHTML = '';
+  gameRules.innerHTML += `
+    <dt>・<strong>Rock</strong> >>> <strong>scissors</strong>  </dt>
+    <dt>・<strong>Scissors</strong> >>> <strong>paper</strong>  </dt>
+    <dt>・<strong>Paper</strong> >>> <strong>rock</strong>  </dt>
+  `
   gameArea.innerHTML = '';
   gameArea.innerHTML += `
-  <div class="fighter-display">
-    <img id="rock" class="rock-image" src="./assets/rock.png" alt="Rock">
-    <img id="paper" class="paper-image" src="./assets/paper.png" alt="Paper">
-    <img id="scissors" class="scissors-image" src="./assets/scissors.png" alt="Scissors">
-  </div>
-  <div class="fighter-instructions">
-    <h2 class="game-text">◀︎  Choose your fighter and <br> click the FIGHT button ▼</h2>
-    <button class="invisible" type="button" alt="here-for-formatting">FIGHT</button>
-  </div>
-  <img class="question-mark" src="./assets/questionmark.png" alt="Question Mark">
+    <div class="fighter-display">
+      <img id="rock" class="rock-image" src="./assets/rock.png" alt="Rock">
+      <img id="paper" class="paper-image" src="./assets/paper.png" alt="Paper">
+      <img id="scissors" class="scissors-image" src="./assets/scissors.png" alt="Scissors">
+    </div>
+    <div class="fighter-instructions">
+      <h2 class="game-text">◀︎  Choose your fighter and <br> click the FIGHT button ▼</h2>
+      <button class="invisible" type="button" alt="here-for-formatting">FIGHT</button>
+    </div>
+    <img class="question-mark" src="./assets/questionmark.png" alt="Question Mark">
   `
-
-  //add rules
-  //add button to change games, home
 }
 
 function loadSpookyGame() {
   currentGame.type = 'spooky';
 
-  gameHeader.innerText = `${currentGame.type.charAt(0).toUpperCase() + currentGame.type.slice(1)} Game`;
   gamePage.classList.remove('hidden');
   homePage.classList.add('hidden');
+
+  gameHeader.innerText = `${currentGame.type.charAt(0).toUpperCase() + currentGame.type.slice(1)} Game`;
+  gameRules.innerHTML = '';
+  gameRules.innerHTML += `
+    <dt>・<strong>Skeleton</strong> >>> <strong>ghost</strong> / <strong>scarecrow</strong></dt>
+    <dt>・<strong>Werewolf</strong> >>> <strong>skeleton</strong> / <strong>bat</strong></dt>
+    <dt>・<strong>Ghost</strong> >>> <strong>werewolf</strong> / <strong>scarecrow</strong></dt>
+    <dt>・<strong>Scarecrow</strong> >>> <strong>werewolf</strong> / <strong>bat</strong></dt>
+    <dt>・<strong>Bat</strong> >>> <strong>ghost</strong> / <strong>skeleton</strong></dt>
+  `
   gameArea.innerHTML = '';
   gameArea.innerHTML += `
-  <div class="spooky-fighter-display">
-    <img id="" class="" src="" alt="">
-    <img id="" class="" src="" alt="">
-    <img id="" class="" src="" alt="">
-    <img id="" class="" src="" alt="">
-    <img id="" class="" src="" alt="">
-  </div>
-  <div class="fighter-instructions">
-    <h2 class="game-text">◀︎  Choose your fighter and <br> click the FIGHT button ▼</h2>
-    <button class="invisible" type="button" alt="here-for-formatting">FIGHT</button>
-  </div>
-  <img class="" src="" alt="">
+    <div class="spooky-fighter-display">
+      <img id="" class="" src="" alt="">
+      <img id="" class="" src="" alt="">
+      <img id="" class="" src="" alt="">
+      <img id="" class="" src="" alt="">
+      <img id="" class="" src="" alt="">
+    </div>
+    <div class="fighter-instructions">
+      <h2 class="game-text">◀︎  Choose your fighter and <br> click the FIGHT button ▼</h2>
+      <button class="invisible" type="button" alt="here-for-formatting">FIGHT</button>
+    </div>
+    <img class="" src="" alt="">
   `
   //add rules
   //add button to change games, restart(?)
@@ -113,8 +123,8 @@ function selectFighters(event) { //make this FOR BOTH CLASSIC AND SPOOKY
 
     event.target.parentElement.nextElementSibling.innerHTML = '';
     event.target.parentElement.nextElementSibling.innerHTML += `
-    <h2 class="game-text">◀︎  Choose your fighter and <br> click the FIGHT button ▼</h2>
-    <button class="fight-button" type="button" id="fightButton">FIGHT</button>
+      <h2 class="game-text">◀︎  Choose your fighter and <br> click the FIGHT button ▼</h2>
+      <button class="fight-button" type="button" id="fightButton">FIGHT</button>
     `
 
     event.target.classList.add('shake');
@@ -130,9 +140,9 @@ function createHTMLResults(currentGame) { //name better
   computerWinsCount.innerText = currentGame.computerPlayer.wins;
   gameArea.innerHTML = '';
   gameArea.innerHTML += `
-  <img id="${currentGame.humanPlayer.fighter}" class="${currentGame.humanPlayer.fighter}-image" src="./assets/${currentGame.humanPlayer.fighter}.png" alt="Rock">
-  <h2 class="game-text">${currentGame.winner.resultText}</h2>
-  <img id="${currentGame.computerPlayer.fighter}" class="${currentGame.computerPlayer.fighter}-image" src="./assets/${currentGame.computerPlayer.fighter}.png" alt="Question Mark">
+    <img id="${currentGame.humanPlayer.fighter}" class="${currentGame.humanPlayer.fighter}-image" src="./assets/${currentGame.humanPlayer.fighter}.png" alt="Rock">
+    <h2 class="game-text">${currentGame.winner.resultText}</h2>
+    <img id="${currentGame.computerPlayer.fighter}" class="${currentGame.computerPlayer.fighter}-image" src="./assets/${currentGame.computerPlayer.fighter}.png" alt="Question Mark">
   `
 }
 
