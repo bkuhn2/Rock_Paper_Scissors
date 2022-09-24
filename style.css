@@ -139,6 +139,24 @@ h2 {
 
 /* Game Page Elements */
 
+dl {
+  border: black;
+  border-style: solid;
+  width: 208px;
+  height: 100px;
+  margin-top: 21px;
+  margin-right: -35px;
+  margin-left: -67px;
+  color: #EBE9D7;
+  font-size: 0.54em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 12px;
+  background: #160c0c99;
+}
+
 .home-button {
 
 }
@@ -192,7 +210,8 @@ h2 {
   border: blue;
   border-style: solid; */
   height: 283px;
-  width: 201px;
+  width: 182px;
+  margin-right: -3px;
 }
 
 .shake {
