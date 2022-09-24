@@ -35,6 +35,7 @@ gamePage.addEventListener('click', function(event) {
 gamePage.addEventListener('click', function(event) {
   showResults(event, currentGame);
 });
+changeGameButton.addEventListener('click', loadChangeGameOptions)
 
 //Functions/Event Handlers
 function createGame() { // change this so the players/game spawn on button click and player sectoin reflects player instance
@@ -108,10 +109,6 @@ function loadSpookyGame() {
   `
 }
 
-
-
-
-
 function selectFighters(event) { //make this FOR BOTH CLASSIC AND SPOOKY
   event.preventDefault(); //necessary?
 
@@ -158,4 +155,11 @@ function showResults(event, currentGame) {
     setTimeout(loadSpookyGame, 3000);
     currentGame.resetBoard();
   }
+}
+
+function loadChangeGameOptions() {
+  gamePage.classList.add('hidden');
+  homePage.classList.remove('hidden');
+  gamePage.classList.remove('spooky-background')
+  //make my input form stuff INVISIBLE HERE, when i do it
 }
