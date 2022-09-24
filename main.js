@@ -9,6 +9,16 @@ var humanWinConditions = [
   {humanFighter: 'rock', computerFighter: 'scissors'},
   {humanFighter: 'paper', computerFighter: 'rock'},
   {humanFighter: 'scissors', computerFighter: 'paper'}
+  {humanFighter: 'skeleton', computerFighter: 'ghost'}
+  {humanFighter: 'skeleton', computerFighter: 'scarecrow'},
+  {humanFighter: 'werewolf', computerFighter: 'skeleton'},
+  {humanFighter: 'werewolf', computerFighter: 'bat'},
+  {humanFighter: 'ghost', computerFighter: 'werewolf'},
+  {humanFighter: 'ghost', computerFighter: 'scarecrow'},
+  {humanFighter: 'scarecrow', computerFighter: 'werewolf'},
+  {humanFighter: 'scarecrow', computerFighter: 'bat'},
+  {humanFighter: 'bat', computerFighter: 'ghost'},
+  {humanFighter: 'bat', computerFighter: 'skeleton'}
 ]
 
 
