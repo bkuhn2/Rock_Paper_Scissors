@@ -18,6 +18,7 @@ header {
   width: 100%;
   margin: 10px;
   margin-bottom: 40px;
+  background: #00000036;
 
 }
 
@@ -118,11 +119,11 @@ h2 {
   border: orange;
   border-style: solid; */
   margin: 44px;
-  background: #1b1b1957;
-  border-radius: 7px;
+  background: #13131359;
+  border-radius: 50px;
   color: #b75250;
-  border-width: 1px;
-  border-color: #120e0e73;
+  border-width: 3px;
+  border-color: #66666673;
   border-style: solid;
 }
 
@@ -139,8 +140,35 @@ h2 {
 
 /* Game Page Elements */
 
-.home-button {
+dl {
+  border: #acacac40;
+  border-style: solid;
+  width: 230px;
+  height: 121px;
+  margin-top: 14px;
+  margin-right: -65px;
+  margin-left: -77px;
+  margin-bottom: 17px;
+          /* consolidate all this margin stuff? */
+  color: #EBE9D7;
+  font-size: 0.53em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  border-radius: 12px;
+  background: #2a2a2a99;
+  border-width: 2px;
+  padding: 7px;
+}
 
+.change-game-button {
+  font-size: .6em;
+  height: 50px;
+  width: 134px;
+  margin-right: -34px;
+  background: rgb(31,30,30);
+  background: linear-gradient(150deg, rgba(31,30,30,1) 0%, rgba(200,200,200,1) 66%);
 }
 
 .fight-button {
@@ -192,7 +220,8 @@ h2 {
   border: blue;
   border-style: solid; */
   height: 283px;
-  width: 201px;
+  width: 182px;
+  margin-right: -3px;
 }
 
 .shake {
@@ -204,6 +233,12 @@ h2 {
   30% { transform: translate(3px, 2px) rotate(14deg); }
   50% { transform: translate(-1px, 2px) rotate(-1deg); }
   60% { transform: translate(-3px, 1px) rotate(0deg); }
+}
+
+.spooky-background {
+  background-image:
+  linear-gradient(0deg, rgba(17,17,17,0.76) 0%, rgba(48,48,48,0.04) 54%),
+  url("./assets/spooky.jpg");
 }
 
 /* Hidden styles */

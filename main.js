@@ -20,12 +20,10 @@ var humanWinsCount = document.querySelector('#humanWinsCount')
 var computerWinsCount = document.querySelector('#computerWinsCount')
 
 var gamePage = document.querySelector('#gamePage');
-var gameArea = document.querySelector('.play-game-area')
-// var classicFighterQueue = document.querySelector('.fighter-display') //will this be gone, DOM problems on reset?
-// var classicRock = document.querySelector('#rock'); am i using these? should i be?
-// var classicPaper = document.querySelector('#paper');
-// var classicScissors = document.querySelector('#scissors');
-var fightButton = document.querySelector('#fightButton')
+var gameHeader = document.querySelector('#gameHeader');
+var gameArea = document.querySelector('.play-game-area');
+var gameRules = document.querySelector('dl');
+var changeGameButton = document.querySelector('#changeGameButton')
 
 //Event Listeners
 window.addEventListener('load', createGame);
@@ -37,6 +35,7 @@ gamePage.addEventListener('click', function(event) {
 gamePage.addEventListener('click', function(event) {
   showResults(event, currentGame);
 });
+changeGameButton.addEventListener('click', loadChangeGameOptions)
 
 //Functions/Event Handlers
 function createGame() { // change this so the players/game spawn on button click and player sectoin reflects player instance
@@ -54,52 +53,61 @@ function loadClassicGame() {
 
   gamePage.classList.remove('hidden');
   homePage.classList.add('hidden');
+
+  gameHeader.innerText = `${currentGame.type.charAt(0).toUpperCase() + currentGame.type.slice(1)} Game`;
+  gameRules.innerHTML = '';
+  gameRules.innerHTML += `
+    <dt>・<strong>Rock</strong> >>> <strong>scissors</strong>  </dt>
+    <dt>・<strong>Scissors</strong> >>> <strong>paper</strong>  </dt>
+    <dt>・<strong>Paper</strong> >>> <strong>rock</strong>  </dt>
+  `
   gameArea.innerHTML = '';
   gameArea.innerHTML += `
-  <div class="fighter-display">
-    <img id="rock" class="rock-image" src="./assets/rock.png" alt="Rock">
-    <img id="paper" class="paper-image" src="./assets/paper.png" alt="Paper">
-    <img id="scissors" class="scissors-image" src="./assets/scissors.png" alt="Scissors">
-  </div>
-  <div class="fighter-instructions">
-    <h2 class="game-text">◀  Choose your fighter and <br> click the FIGHT button above</h2>
-  </div>
-  <img class="question-mark" src="./assets/questionmark.png" alt="Question Mark">
+    <div class="fighter-display">
+      <img id="rock" class="rock-image" src="./assets/rock.png" alt="Rock">
+      <img id="paper" class="paper-image" src="./assets/paper.png" alt="Paper">
+      <img id="scissors" class="scissors-image" src="./assets/scissors.png" alt="Scissors">
+    </div>
+    <div class="fighter-instructions">
+      <h2 class="game-text">◀︎  Choose your fighter and <br> click the FIGHT button ▼</h2>
+      <button class="invisible" type="button" alt="here-for-formatting">FIGHT</button>
+    </div>
+    <img class="question-mark" src="./assets/questionmark.png" alt="Question Mark">
   `
-
-  //change header to say classic
-  //add rules
-  //add button to change games, restart(?)
 }
 
 function loadSpookyGame() {
   currentGame.type = 'spooky';
 
   gamePage.classList.remove('hidden');
+  gamePage.classList.add('spooky-background')
   homePage.classList.add('hidden');
+
+  gameHeader.innerText = `${currentGame.type.charAt(0).toUpperCase() + currentGame.type.slice(1)} Game`;
+  gameRules.innerHTML = '';
+  gameRules.innerHTML += `
+    <dt>・<strong>Skeleton</strong> >>> <strong>ghost</strong> / <strong>scarecrow</strong></dt>
+    <dt>・<strong>Werewolf</strong> >>> <strong>skeleton</strong> / <strong>bat</strong></dt>
+    <dt>・<strong>Ghost</strong> >>> <strong>werewolf</strong> / <strong>scarecrow</strong></dt>
+    <dt>・<strong>Scarecrow</strong> >>> <strong>werewolf</strong> / <strong>bat</strong></dt>
+    <dt>・<strong>Bat</strong> >>> <strong>ghost</strong> / <strong>skeleton</strong></dt>
+  `
   gameArea.innerHTML = '';
   gameArea.innerHTML += `
-  <div class="spooky-fighter-display">
-    <img id="" class="" src="" alt="">
-    <img id="" class="" src="" alt="">
-    <img id="" class="" src="" alt="">
-    <img id="" class="" src="" alt="">
-    <img id="" class="" src="" alt="">
-  </div>
-  <div class="fighter-instructions">
-    <h2 class="game-text">◀  Choose your fighter and <br> click the FIGHT button above</h2>
-  </div>
-  <img class="" src="" alt="">
+    <div class="spooky-fighter-display">
+      <img id="" class="" src="" alt="">
+      <img id="" class="" src="" alt="">
+      <img id="" class="" src="" alt="">
+      <img id="" class="" src="" alt="">
+      <img id="" class="" src="" alt="">
+    </div>
+    <div class="fighter-instructions">
+      <h2 class="game-text">◀︎  Choose your fighter and <br> click the FIGHT button ▼</h2>
+      <button class="invisible" type="button" alt="here-for-formatting">FIGHT</button>
+    </div>
+    <img class="" src="" alt="">
   `
-  //change header to say spooky
-  //add rules
-  //add button to change games, restart(?)
-  //change background
 }
-
-
-
-
 
 function selectFighters(event) { //make this FOR BOTH CLASSIC AND SPOOKY
   event.preventDefault(); //necessary?
@@ -107,29 +115,51 @@ function selectFighters(event) { //make this FOR BOTH CLASSIC AND SPOOKY
   if (allFighterTypes.includes(event.target.id)) {
     currentGame.humanPlayer.takeTurn(event);
     currentGame.computerPlayer.takeTurn(event, currentGame.type);
-    currentGame.determineWinner();
 
-    fightButton.classList.remove('invisible'); //<-------instead of a hardwired button, make a new one here? or have a fxn invoked taht does that?
+    event.target.parentElement.nextElementSibling.innerHTML = '';
+    event.target.parentElement.nextElementSibling.innerHTML += `
+      <h2 class="game-text">◀︎  Choose your fighter and <br> click the FIGHT button ▼</h2>
+      <button class="fight-button" type="button" id="fightButton">FIGHT</button>
+    `
 
     event.target.classList.add('shake');
-    setTimeout(removeShake, 2000) //need be in variable?
+    setTimeout(removeShake, 2000) //need be outside selectFighters fxn??
     function removeShake() {
       event.target.classList.remove('shake') //does event need be a param???
     }
   }
 }
 
-function showResults(event, currentGame) {
-  event.preventDefault();
-
-  if (event.target.id === 'fightButton') {
-    humanWinsCount.innerText = currentGame.humanPlayer.wins;
-    computerWinsCount.innerText = currentGame.computerPlayer.wins;
-    gameArea.innerHTML = '';
-    gameArea.innerHTML += `
+function createHTMLResults(currentGame) { //name better
+  humanWinsCount.innerText = currentGame.humanPlayer.wins;
+  computerWinsCount.innerText = currentGame.computerPlayer.wins;
+  gameArea.innerHTML = '';
+  gameArea.innerHTML += `
     <img id="${currentGame.humanPlayer.fighter}" class="${currentGame.humanPlayer.fighter}-image" src="./assets/${currentGame.humanPlayer.fighter}.png" alt="Rock">
     <h2 class="game-text">${currentGame.winner.resultText}</h2>
     <img id="${currentGame.computerPlayer.fighter}" class="${currentGame.computerPlayer.fighter}-image" src="./assets/${currentGame.computerPlayer.fighter}.png" alt="Question Mark">
-    `
+  `
+}
+
+function showResults(event, currentGame) {
+  event.preventDefault();
+
+  if (event.target.id === 'fightButton' && currentGame.type === 'classic') {
+    currentGame.determineWinner();
+    createHTMLResults(currentGame);
+    setTimeout(loadClassicGame, 3000);
+    currentGame.resetBoard();
+  } else if (event.target.id === 'fightButton' && currentGame.type === 'spooky') {
+    currentGame.determineWinner();
+    createHTMLResults(currentGame);
+    setTimeout(loadSpookyGame, 3000);
+    currentGame.resetBoard();
   }
+}
+
+function loadChangeGameOptions() {
+  gamePage.classList.add('hidden');
+  homePage.classList.remove('hidden');
+  gamePage.classList.remove('spooky-background')
+  //make my input form stuff INVISIBLE HERE, when i do it
 }

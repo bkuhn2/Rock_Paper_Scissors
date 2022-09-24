@@ -50,11 +50,10 @@ class Game {
   }
 
   resetBoard() {
-    //reset humanPlayer.fighter
-    //reset computerPlayer.fighter
-    //reset this. winner ''
-    //reset this.tie
-
+    this.humanPlayer.fighter = '';
+    this.computerPlayer.fighter = '';
+    this.winner = '';
+    this.tie = false;
   }
 }
 
