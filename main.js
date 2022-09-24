@@ -64,7 +64,8 @@ function loadClassicGame() {
     <img id="scissors" class="scissors-image" src="./assets/scissors.png" alt="Scissors">
   </div>
   <div class="fighter-instructions">
-    <h2 class="game-text">◀  Choose your fighter and <br> click the FIGHT button above</h2>
+    <h2 class="game-text">◀︎  Choose your fighter and <br> click the FIGHT button ▼</h2>
+    <button class="invisible" type="button" alt="here-for-formatting">FIGHT</button>
   </div>
   <img class="question-mark" src="./assets/questionmark.png" alt="Question Mark">
   `
@@ -89,11 +90,11 @@ function loadSpookyGame() {
     <img id="" class="" src="" alt="">
   </div>
   <div class="fighter-instructions">
-    <h2 class="game-text">◀  Choose your fighter and <br> click the FIGHT button above</h2>
+    <h2 class="game-text">◀︎  Choose your fighter and <br> click the FIGHT button ▼</h2>
+    <button class="invisible" type="button" alt="here-for-formatting">FIGHT</button>
   </div>
   <img class="" src="" alt="">
   `
-  //change header to say spooky
   //add rules
   //add button to change games, restart(?)
   //change background
@@ -110,7 +111,11 @@ function selectFighters(event) { //make this FOR BOTH CLASSIC AND SPOOKY
     currentGame.humanPlayer.takeTurn(event);
     currentGame.computerPlayer.takeTurn(event, currentGame.type);
 
-    fightButton.classList.remove('invisible'); //<-------instead of a hardwired button, make a new one here? or have a fxn invoked taht does that?
+    event.target.parentElement.nextElementSibling.innerHTML = '';
+    event.target.parentElement.nextElementSibling.innerHTML += `
+    <h2 class="game-text">◀︎  Choose your fighter and <br> click the FIGHT button ▼</h2>
+    <button class="fight-button" type="button" id="fightButton">FIGHT</button>
+    `
 
     event.target.classList.add('shake');
     setTimeout(removeShake, 2000) //need be outside selectFighters fxn??
