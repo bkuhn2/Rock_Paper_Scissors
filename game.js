@@ -27,7 +27,12 @@ class Game {
 
     this.winner = this.computerPlayer;
     this.computerPlayer.wins ++;
-    
+
+//^^^ if we did have the plaers in one key as an array,
+//could we loop through the array and check then have an if then statment??? idk maybe
+
+
+
     // if (this.humanPlayer.fighter === this.computerPlayer.fighter) {
     //   this.tie = true;
     //     this.winner = {
