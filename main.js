@@ -15,34 +15,23 @@ var gamePage = document.querySelector('#gamePage');
 var gameHeader = document.querySelector('#gameHeader'); //being used?
 var gameRules = document.querySelector('dl');
 var changeGameButton = document.querySelector('#changeGameButton');
-
-var classicGameArea = document.querySelector('.classic-game-area');
-var spookyGameArea = document.querySelector('.spooky-game-area');
 var gameAreas = {
-  classic: classicGameArea, //could i just have the document querySelectors in here????
-  spooky: spookyGameArea
+  classic: classicGameArea = document.querySelector('.classic-game-area'),
+  spooky: spookyGameArea = document.querySelector('.spooky-game-area')
 };
-
-var classicResultsArea = document.querySelector('.classic-results-area');
-var spookyResultsArea = document.querySelector('.spooky-results-area');
 var resultsAreas = {
-  classic: classicResultsArea,
-  spooky: spookyResultsArea
+  classic: classicResultsArea = document.querySelector('.classic-results-area'),
+  spooky: spookyResultsArea = document.querySelector('.spooky-results-area')
 };
-
-var classicFighterDisplay = document.querySelector('.classic-fighter-display');
-var spookyFighterDisplay = document.querySelector('.spooky-fighter-display');
 var fighterDisplays = {
-  classic: classicFighterDisplay,
-  spooky: spookyFighterDisplay
+  classic: classicFighterDisplay = document.querySelector('.classic-fighter-display'),
+  spooky: spookyFighterDisplay = document.querySelector('.spooky-fighter-display')
 };
-
-var classicFighterInstructions = document.querySelector('.classic-fighter-instructions');
-var spookyFighterInstructions = document.querySelector('.spooky-fighter-instructions');
 var fighterInstructions = {
-  classic: classicFighterInstructions,
-  spooky: spookyFighterInstructions
+  classic: classicFighterInstructions = document.querySelector('.classic-fighter-instructions'),
+  spooky: spookyFighterInstructions = document.querySelector('.spooky-fighter-instructions')
 }
+
 
 //Event Listeners
 window.addEventListener('load', createGame);
