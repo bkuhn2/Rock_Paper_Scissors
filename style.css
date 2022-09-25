@@ -175,7 +175,10 @@ dl {
 .fight-button {
 }
 
-.play-game-area {
+.classic-game-area,
+.spooky-game-area,
+.classic-results-area,
+.spooky-results-area {
   /* border-width: 25px;
   border: red;
   border-style: solid; */
@@ -186,7 +189,7 @@ dl {
   justify-content: space-evenly;
 }
 
-.fighter-display {
+.classic-fighter-display {
   /* border-width: 25px;
   border: blue;
   border-style: solid; */
@@ -236,7 +239,8 @@ dl {
   margin-top: -50px;
 }
 
-.fighter-instructions {
+.spooky-fighter-instructions,
+.classic-fighter-instructions {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -276,6 +280,13 @@ dl {
   linear-gradient(0deg, rgba(17,17,17,0.76) 0%, rgba(48,48,48,0.04) 54%),
   url("./assets/spooky.jpg");
 }
+
+.classic-background {
+  background-image:
+  linear-gradient(0deg, rgba(17,17,17,0.76) 0%, rgba(48,48,48,0.04) 54%),
+  url("./assets/blacktexture.jpg");
+}
+
 
 /* Hidden styles */
 

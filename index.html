@@ -21,8 +21,8 @@
       <div class="choose-game-area">
         <h2 class="game-text">Which game would you like to play?</h2>
         <div class="game-choices">
-          <button type="button" id="classicGameButton">Classic</button>
-          <button type="button" id="spookyGameButton">Spooky</button>
+          <button type="button" id="classicGameButton">classic</button>
+          <button type="button" id="spookyGameButton">spooky</button>
         </div>
       </div>
     </section>
@@ -34,16 +34,31 @@
         <h1 id="gameHeader">Classic Game</h1>
         <button class="change-game-button" type="button" id="changeGameButton">Change Game</button>
       </header>
-      <div class="play-game-area">
-        <div class="fighter-display">
-          <img id="rock" class="rock-image" src="./assets/rock.png" alt="Rock">
-          <img id="paper" class="paper-image" src="./assets/paper.png" alt="Paper">
-          <img id="scissors" class="scissors-image" src="./assets/scissors.png" alt="Scissors">
+      <div class="classic-game-area hidden">
+        <div class="classic-fighter-display">
+          <!-- images will populate here -->
         </div>
-        <!-- <div class="fighter-instructions"> -->
-          <!-- <h2 class="game-choice-prompt">◀  Choose your fighter</h2> change game-choice prompt to something more universal -->
-        <!-- </div> take out?-->
+        <div class="classic-fighter-instructions">
+          <h2 class="game-text">◀  Choose your fighter and <br> click the FIGHT button ▼</h2>
+          <!-- button will populate here -->
+        </div>
         <img class="question-mark" src="./assets/questionmark.png" alt="Question Mark">
+      </div>
+      <div class="classic-results-area hidden">
+        <!-- results appear here -->
+      </div>
+      <div class="spooky-game-area hidden">
+        <div class="spooky-fighter-display">
+          <!-- images will populate here -->
+        </div>
+        <div class="spooky-fighter-instructions">
+          <h2 class="game-text">◀  Choose your fighter and <br> click the FIGHT button ▼</h2>
+          <!-- button will populate here -->
+        </div>
+        <img class="blood-splatter" src="./assets/blood.png" alt="Blood Splatter">
+      </div>
+      <div class="spooky-results-area hidden">
+        <!-- results appear here -->
       </div>
     </section>
     <section class="computer-section">
@@ -58,4 +73,5 @@
   <script type="text/javascript" src="./main.js"></script>
   <script type="text/javascript" src="./player.js"></script>
   <script type="text/javascript" src="./game.js"></script>
+  <script type="text/javascript" src="./game-data.js"></script>
 </html>
