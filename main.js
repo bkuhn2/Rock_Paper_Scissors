@@ -8,8 +8,9 @@ var currentGame;
 var homePage = document.querySelector('#homePage');
 var classicGameButton = document.querySelector('#classicGameButton');
 var spookyGameButton = document.querySelector('#spookyGameButton');
-var humanWinsCount = document.querySelector('#humanWinsCount')
-var computerWinsCount = document.querySelector('#computerWinsCount')
+var humanWinsCount = document.querySelector('#humanWinsCount');
+var computerWinsCount = document.querySelector('#computerWinsCount');
+var humanName = document.querySelector('.human-name');
 
 var gamePage = document.querySelector('#gamePage');
 var gameHeader = document.querySelector('#gameHeader'); //being used?
