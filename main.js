@@ -8,8 +8,16 @@ var currentGame;
 var homePage = document.querySelector('#homePage');
 var classicGameButton = document.querySelector('#classicGameButton');
 var spookyGameButton = document.querySelector('#spookyGameButton');
-var humanWinsCount = document.querySelector('#humanWinsCount')
-var computerWinsCount = document.querySelector('#computerWinsCount')
+var chooseGameArea = document.querySelector('.choose-game-area');
+var typeNameArea = document.querySelector('.name-human-player-area');
+var nameInputBox = document.querySelector('#userNameInput');
+var tokenInputBox = document.querySelector('#userEmojiInput');
+var namingButton = document.querySelector('#updateNameButton');
+
+var humanWinsCount = document.querySelector('#humanWinsCount');
+var computerWinsCount = document.querySelector('#computerWinsCount');
+var humanName = document.querySelector('#humanName');
+var humanToken = document.querySelector('#humanToken');
 
 var gamePage = document.querySelector('#gamePage');
 var gameHeader = document.querySelector('#gameHeader'); //being used?
@@ -35,6 +43,9 @@ var fighterInstructions = {
 
 //Event Listeners
 window.addEventListener('load', createGame);
+namingButton.addEventListener('click', function() {
+  loadHomePage(currentGame);
+});
 classicGameButton.addEventListener('click', function() {
   setGameType(currentGame);
   loadGame(currentGame);
@@ -52,10 +63,25 @@ gamePage.addEventListener('click', function(event) {
 changeGameButton.addEventListener('click', loadChangeGameOptions)
 
 //Functions/Event Handlers
-function createGame() { // change this so the players/game spawn on button click and player sectoin reflects player instance
-  humanPlayer = new Player('human', '🤡'); //intead of human here, have place for them to input name, icon
+function createGame() {
+  humanPlayer = new Player();
   computerPlayer = new Player('Computer', '💻');
   currentGame = new Game(humanPlayer, computerPlayer);
+}
+
+function updatePlayerName(currentGame) {
+  currentGame.humanPlayer.name = nameInputBox.value;
+  currentGame.humanPlayer.token = tokenInputBox.value;
+  currentGame.humanPlayer.resultText = `${tokenInputBox.value} ${nameInputBox.value} wins!`;
+
+  humanName.innerText = nameInputBox.value;
+  humanToken.innerText = tokenInputBox.value;
+}
+
+function loadHomePage(currentGame) { //name better???
+  updatePlayerName(currentGame);
+  typeNameArea.classList.add('hidden');
+  chooseGameArea.classList.remove('hidden');
 }
 
 function createRandomNumber(totalFighters) {
@@ -195,7 +221,8 @@ function showResults(event, currentGame) {
 
   if (event.target.id === 'fightButton') {
     currentGame.determineWinner();
-
+console.log(currentGame.humanPlayer);
+console.log(currentGame.winner);
     humanWinsCount.innerText = currentGame.humanPlayer.wins;
     computerWinsCount.innerText = currentGame.computerPlayer.wins;
 
