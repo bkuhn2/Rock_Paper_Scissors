@@ -10,8 +10,8 @@
       <img src="./assets/human.jpeg" class="human-photo" alt="Depiction of humanity">
       <div class="human-score-section">
         <h2>Human Player</h2>
-        <h2 class="human-name-and-emoji">Bartholomew</h2>
-        <h2 class="human-name-and-emoji">🤡</h2>
+        <h2 class="human-name-and-emoji" id="humanName"></h2>
+        <h2 class="human-name-and-emoji" id="humanToken"></h2>
         <h3 class="wins-tally">Wins</h3>
         <p class="wins-tally" id="humanWinsCount">0</p>
       </div>
@@ -20,7 +20,21 @@
       <header>
         <h1>Rock, Paper, Scissors</h1>
       </header>
-      <div class="choose-game-area">
+      <div class="name-human-player-area">
+        <h2 class="game-text">Choose your name and token</h2>
+        <div class="name-input-forms">
+          <div class="input-boxes-labels">
+            <input class="name-input" id="userNameInput" type="text" value="your name">
+            <label for="userNameInput" class="label">Name</label>
+          </div>
+          <div class="input-boxes-labels">
+            <input class="emoji-input" id="userEmojiInput" type="text" value="your favorite emoji">
+            <label for="userEmojiInput" class="label">Token</label>
+          </div>
+          <button class="make-name-button "id="updateNameButton" type="button">GO</button>
+        </div>
+      </div>
+      <div class="choose-game-area hidden">
         <h2 class="game-text">Which game would you like to play?</h2>
         <div class="game-choices">
           <button type="button" id="classicGameButton">classic</button>

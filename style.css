@@ -114,6 +114,32 @@ h2 {
   min-width: 1050px;
 }
 
+.name-human-player-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.input-boxes-labels {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name-input-forms {
+  width: 645px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+}
+
+.name-input,
+.emoji-input {
+
+}
+
 .choose-game-area {
   /* border-width: 25px;
   border: blue;
