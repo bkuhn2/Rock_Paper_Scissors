@@ -31,29 +31,6 @@ class Game {
 
 //^^^ if we did have the plaers in one key as an array,
 //could we loop through the array and check then have an if then statment??? idk maybe
-
-
-
-    // if (this.humanPlayer.fighter === this.computerPlayer.fighter) {
-    //   this.tie = true;
-    //     this.winner = {
-    //       winner: 'none',
-    //       resultText: "draw  😐",
-    //     };
-    // } else if (this.humanPlayer.fighter === 'rock' && this.computerPlayer.fighter === 'scissors') {
-    //   this.winner = this.humanPlayer;
-    //   this.humanPlayer.wins ++;
-    // } else if (this.humanPlayer.fighter === 'paper' && this.computerPlayer.fighter === 'rock') {
-    //   this.winner = this.humanPlayer;
-    //   this.humanPlayer.wins ++;
-    // } else if (this.humanPlayer.fighter === 'scissors' && this.computerPlayer.fighter === 'paper') {
-    //   this.winner = this.humanPlayer;
-    //   this.humanPlayer.wins ++;
-    // } else {
-    //   this.winner = this.computerPlayer;
-    //   this.computerPlayer.wins ++;
-    // }
-
   }
 
   resetBoard() {
@@ -63,31 +40,3 @@ class Game {
     this.tie = false;
   }
 }
-
-
-//OLD WORKING DETERMINE WINNER CODE, BUT TOO LONG
-// if (this.humanPlayer.fighter === 'rock' && this.computerPlayer.fighter === 'scissors') {
-//   this.winner = this.humanPlayer;
-//   this.humanPlayer.wins ++;
-// } else if (this.humanPlayer.fighter === 'rock' && this.computerPlayer.fighter === 'paper') {
-//   this.winner = this.computerPlayer;
-//   this.computerPlayer.wins ++;
-// } else if (this.humanPlayer.fighter === 'paper' && this.computerPlayer.fighter === 'rock'){
-//   this.winner = this.humanPlayer;
-//   this.humanPlayer.wins ++;
-// } else if (this.humanPlayer.fighter === 'paper' && this.computerPlayer.fighter === 'scissors') {
-//   this.winner = this.computerPlayer;
-//   this.computerPlayer.wins ++;
-// } else if (this.humanPlayer.fighter === 'scissors' && this.computerPlayer.fighter === 'paper') {
-//   this.winner = this.humanPlayer;
-//   this.humanPlayer.wins ++;
-// } else if (this.humanPlayer.fighter === 'scissors' && this.computerPlayer.fighter === 'rock') {
-//   this.winner = this.computerPlayer;
-//   this.computerPlayer.wins ++;
-// } else if (this.humanPlayer.fighter === this.computerPlayer.fighter) {
-//   this.tie = true;
-//   this.winner = {
-//     winner: 'none',
-//     resultText: "draw  😐",
-//   };
-// }

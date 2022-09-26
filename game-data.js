@@ -1,4 +1,4 @@
-//Game Data assets
+//------------Global Variables For Rock, Paper, Scissors game data---------->
 
 var fighterTypes = {
   classic: [{type: 'rock', img: './assets/rock.png'},
