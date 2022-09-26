@@ -64,8 +64,8 @@ changeGameButton.addEventListener('click', loadChangeGameOptions)
 
 //Functions/Event Handlers
 function createGame() {
-  humanPlayer = new Player();
-  computerPlayer = new Player('Computer', '💻');
+  humanPlayer = new Player('human');
+  computerPlayer = new Player('computer', 'Computer', '💻');
   currentGame = new Game(humanPlayer, computerPlayer);
 }
 
@@ -187,8 +187,8 @@ function selectFighters(event, currentGame) {
   }
 
   if (currentFighterTypes.includes(event.target.id)) {
-    currentGame.humanPlayer.takeTurn(event, currentGame); //add currentGame arguments
-    currentGame.computerPlayer.takeTurn(event, currentGame); //make just currentGame
+    currentGame.humanPlayer.takeTurn(event, currentGame);
+    currentGame.computerPlayer.takeTurn(event, currentGame);
 
     event.target.parentElement.nextElementSibling.innerHTML = '';
     event.target.parentElement.nextElementSibling.innerHTML += `
@@ -221,8 +221,7 @@ function showResults(event, currentGame) {
 
   if (event.target.id === 'fightButton') {
     currentGame.determineWinner();
-console.log(currentGame.humanPlayer);
-console.log(currentGame.winner);
+
     humanWinsCount.innerText = currentGame.humanPlayer.wins;
     computerWinsCount.innerText = currentGame.computerPlayer.wins;
 

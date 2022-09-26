@@ -1,5 +1,5 @@
 class Game {
-  constructor(human, computer) { //need pass in two players as arguments?? per spec
+  constructor(human, computer) {
     this.humanPlayer = human;
     this.computerPlayer = computer;
     this.winner = '';
@@ -21,6 +21,7 @@ class Game {
       if (humanWinConditions[currentGame.type][i].humanFighter === this.humanPlayer.fighter.type && humanWinConditions[currentGame.type][i].computerFighter === this.computerPlayer.fighter.type) {
         this.winner = this.humanPlayer;
         this.humanPlayer.wins ++;
+        //could i put the tie in here?????
         return; //necessary?
       }
     }
