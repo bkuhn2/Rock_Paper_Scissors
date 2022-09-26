@@ -1,6 +1,10 @@
 
 /* global style elements */
 
+* {
+  font-family: 'Tajawal', sans-serif;
+}
+
 section {
   /* border-width: 30px;
   border: cadetblue;
@@ -28,20 +32,26 @@ body {
 }
 
 button {
-  height: 33px;
-  width: 101px;
+  height: 39px;
+  width: 127px;
   border-radius: 10px;
   cursor: pointer;
+  font-family: monospace;
+  font-size: 1.4em;
+  background: darkgray;
 }
 
 h1 {
-  color: #EBE9D7;
+  color: #f4eade;
   margin: 22px;
+  font-family: 'Berkshire Swash', cursive;
+
 }
 
 h2 {
   padding: 14px;
   text-align: center;
+
 }
 
 /* Human and computer section elements */
@@ -60,14 +70,25 @@ h2 {
 }
 /* ^^^^make one???? */
 
+.player-type-heading {
+  font-family: 'Berkshire Swash', cursive;
+  font-size: 1.7em;
+}
+
 .human-name-and-emoji {
   margin: 3px;
-  padding: 3px;
+  padding: 0px;
+  margin-bottom: 20px;
+  font-weight: 200;
+}
+
+.computer-name-and-emoji {
+  margin: 8px;
+  padding: 13px;
   margin-bottom: 20px;
 }
 
-.human-photo,
-.computer-photo {
+.player-photo {
   padding: 7px;
   border-radius: 14px;
   height: 160px;
@@ -80,8 +101,7 @@ h2 {
 /* ^^^^make one???? */
 
 
-.human-score-section,
-.computer-score-section {
+.score-section {
   /* border-width: 25px;
   border: pink;
   border-style: solid; */
@@ -96,7 +116,20 @@ h2 {
 
 .wins-tally {
   margin: 4px;
+  font-size: 1.2em;
+  font-weight: 500;
+  font-family: 'Berkshire Swash', cursive;
+  margin-top: 34px;
 }
+
+.wins-number {
+  font-size: 3.6em;
+  font-weight: 300;
+  font-family: 'Berkshire Swash', cursive;
+  margin-top: -4px;
+  text-shadow: 5px 3px 1px #52525252;
+}
+
 
 /* Home Page Specific Elements */
 
@@ -137,12 +170,20 @@ h2 {
 }
 
 .input-box {
-
+  height: 31px;
+  width: 208px;
+  font-size: 1em;
+  border-radius: 7px;
+  font-weight: 200;
 }
 
 .label {
-
+  color: #f4eade;
+  font-family: 'Berkshire Swash', cursive;
+  margin: 8px;
 }
+
+
 
 .choose-game-area {
   /* border-width: 25px;
@@ -163,10 +204,12 @@ h2 {
   margin: 44px;
   background: #13131359;
   border-radius: 50px;
-  color: #b75250;
+  color: #e14744;
   border-width: 3px;
   border-color: #66666673;
   border-style: solid;
+  font-size: 1.3em;
+  font-weight: 300;
 }
 
 .game-choices {
@@ -192,8 +235,9 @@ dl {
   margin-left: -77px;
   margin-bottom: 17px;
           /* consolidate all this margin stuff? */
-  color: #EBE9D7;
-  font-size: 0.53em;
+  color: #f4eade;
+  font-size: 0.45em;
+  font-weight: 100;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -209,11 +253,23 @@ dl {
   height: 50px;
   width: 134px;
   margin-right: -34px;
-  background: rgb(31,30,30);
-  background: linear-gradient(150deg, rgba(31,30,30,1) 0%, rgba(200,200,200,1) 66%);
+  background: rgb(31 30 30 / 47%);
+  border-style: solid;
+  border-width: 1px;
+  color: #7ce7d1;
+  font-family: 'Berkshire Swash', cursive;
 }
 
 .fight-button {
+  font-size: 1.8em;
+  height: 50px;
+  width: 134px;
+  background: rgb(31 30 30 / 74%);
+  border-style: solid;
+  border-width: 1px;
+  color: #7ce7d1;
+  font-family: auto;
+  font-weight: 700;
 }
 
 .classic-game-area,

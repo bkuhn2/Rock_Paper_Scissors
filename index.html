@@ -3,17 +3,18 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Berkshire+Swash&family=Tajawal:wght@200&display=swap">
     <title>Rock Paper Scissors</title>
   </head>
   <body>
     <section class="human-section">
-      <img src="./assets/human.jpeg" class="human-photo" alt="Depiction of humanity">
-      <div class="human-score-section">
-        <h2>Human Player</h2>
+      <img src="./assets/human.jpeg" class="player-photo" alt="Depiction of humanity">
+      <div class="score-section">
+        <h2 class="player-type-heading">Human Player</h2>
         <h2 class="human-name-and-emoji" id="humanName"></h2>
         <h2 class="human-name-and-emoji" id="humanToken"></h2>
         <h3 class="wins-tally">Wins</h3>
-        <p class="wins-tally" id="humanWinsCount">0</p>
+        <p class="wins-number" id="humanWinsCount">0</p>
       </div>
     </section>
     <section class="main-section" id="homePage">
@@ -48,7 +49,7 @@
           <!-- rules of the game -->
         </dl>
         <h1 id="gameHeader"><!--game type populates here--></h1>
-        <button class="change-game-button" type="button" id="changeGameButton">Change Game</button>
+        <button class="change-game-button" type="button" id="changeGameButton">change game</button>
       </header>
       <div class="classic-game-area hidden">
         <div class="classic-fighter-display">
@@ -78,11 +79,13 @@
       </div>
     </section>
     <section class="computer-section">
-      <img src="./assets/terminator.jpeg" class="computer-photo" alt="Depiction of the computer enemy">
-      <div class="computer-score-section">
-        <h2>Computer</h2>
+      <img src="./assets/terminator.jpeg" class="player-photo" alt="Depiction of the computer enemy">
+      <div class="score-section">
+        <h2 class="player-type-heading">Computer</h2>
+        <h2 class="computer-name-and-emoji"></h2>
+        <h2 class="computer-name-and-emoji">💻</h2>
         <h3 class="wins-tally">Wins</h3>
-        <p class="wins-tally" id="computerWinsCount">0</p>
+        <p class="wins-number" id="computerWinsCount">0</p>
       </div>
     </section>
   </body>
