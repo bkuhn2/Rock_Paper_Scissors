@@ -118,6 +118,10 @@ function loadGame(currentGame) {
   `
 }
 
+function removeShake(event) {
+  event.target.classList.remove('shake');
+}
+
 function selectFighters(event, currentGame) {
   event.preventDefault(); //necessary?
 
@@ -137,10 +141,13 @@ function selectFighters(event, currentGame) {
     `;
 
     event.target.classList.add('shake');
-    setTimeout(removeShake, 2000) //need be outside selectFighters fxn??
-    function removeShake() {
-      event.target.classList.remove('shake') //does event need be a param???
-    }
+    setTimeout(function() {
+      removeShake(event);
+    }, 2000);
+    // setTimeout(removeShake, 2000) //need be outside selectFighters fxn??
+    // function removeShake(event) {
+    //   event.target.classList.remove('shake') //does event need be a param???
+    // }
   }
 }
 
@@ -164,7 +171,8 @@ function showResults(event, currentGame) {
 
     setTimeout(function() {
       loadGame(currentGame);
-    }, 3000);
+    }, 2700);
+    
     currentGame.resetBoard();
   }
 }
