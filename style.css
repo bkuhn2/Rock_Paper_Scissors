@@ -112,6 +112,7 @@ h2 {
   url("./assets/blacktexture.jpg");
   border-radius: 10px;
   min-width: 1050px;
+  min-height: 955px;
 }
 
 .name-human-player-area {
@@ -283,12 +284,11 @@ dl {
   margin-right: -3px;
 }
 
-.blood-splatter {
-  height: 300px;
-  width: 339px;
-  margin-right: -96px;
+.circle {
+  height: 230px;
+  width: 230px;
+  margin-right: 10px;
   margin-left: -31px;
-  opacity: 0.6;
 }
 
 .shake {
