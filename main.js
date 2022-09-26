@@ -79,7 +79,7 @@ function updatePlayerName(currentGame) {
   humanToken.innerText = tokenInputBox.value;
 }
 
-function loadHomePage(currentGame) { //name better???
+function loadHomePage(currentGame) {
   updatePlayerName(currentGame);
   typeNameArea.classList.add('hidden');
   chooseGameArea.classList.remove('hidden');
@@ -115,7 +115,7 @@ function loadGame(currentGame) {
   fighterDisplays[currentGame.type].innerHTML = '';
   for (var i = 0; i < fighterTypes[currentGame.type].length; i++) {
     fighterDisplays[currentGame.type].innerHTML += `
-      <img id="${fighterTypes[currentGame.type][i].type}" class="${fighterTypes[currentGame.type][i].type}-image" src="${fighterTypes[currentGame.type][i].img}" alt="${fighterTypes[currentGame.type][i].type}">
+      <img id="${fighterTypes[currentGame.type][i].type}" class="${currentGame.type}-image" src="${fighterTypes[currentGame.type][i].img}" alt="${fighterTypes[currentGame.type][i].type}">
     `;
   }
 
@@ -168,9 +168,9 @@ function showResults(event, currentGame) {
     resultsAreas[currentGame.type].classList.remove('hidden');
     resultsAreas[currentGame.type].innerHTML = '';
     resultsAreas[currentGame.type].innerHTML += `
-    <img id="${currentGame.humanPlayer.fighter.type}" class="${currentGame.humanPlayer.fighter.type}-image" src="${currentGame.humanPlayer.fighter.img}" alt="${currentGame.humanPlayer.fighter.type}">
+    <img id="${currentGame.humanPlayer.fighter.type}" class="${currentGame.type}-image" src="${currentGame.humanPlayer.fighter.img}" alt="${currentGame.humanPlayer.fighter.type}">
     <h2 class="game-text">${currentGame.winner.resultText}</h2>
-    <img id="${currentGame.computerPlayer.fighter.type}" class="${currentGame.computerPlayer.fighter.type}-image" src="${currentGame.computerPlayer.fighter.img}" alt="${currentGame.computerPlayer.fighter.type}">
+    <img id="${currentGame.computerPlayer.fighter.type}" class="${currentGame.type}-image" src="${currentGame.computerPlayer.fighter.img}" alt="${currentGame.computerPlayer.fighter.type}">
     `;
 
     setTimeout(function() {

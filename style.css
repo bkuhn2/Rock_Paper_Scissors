@@ -135,8 +135,11 @@ h2 {
 
 }
 
-.name-input,
-.emoji-input {
+.input-box {
+
+}
+
+.label {
 
 }
 
@@ -249,33 +252,18 @@ dl {
   margin-right: 102px;
 }
 
-.rock-image,
-.paper-image,
-.scissors-image {
+.classic-image {
   height: 182px;
   width: 190px;
+  padding: 33px;
   cursor: pointer;
 }
-/* could these just be a classic img class??? */
 
-.skeleton-image,
-.bat-image,
-.scarecrow-image,
-.ghost-image,
-.werewolf-image {
+.spooky-image {
   height: 237px;
   width: 219px;
   cursor: pointer;
   margin-left: 22px;
-}
-/* could these ^^^ just be a spooky img class??? */
-
-.bat-image {
-  width: 260px;
-}
-
-.scissors-image {
-  margin-top: -50px;
 }
 
 .spooky-fighter-instructions,
@@ -285,7 +273,6 @@ dl {
   align-items: center;
   width: 440px;
 }
-/* ^^^^^do these need to be separate, in HTML? JS dependant? */
 
 .question-mark {
   /* border-width: 25px;
