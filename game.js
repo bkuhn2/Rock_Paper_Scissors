@@ -1,5 +1,5 @@
 class Game {
-  constructor(human, computer) { //need pass in two players as arguments?? per spec
+  constructor(human, computer) {
     this.humanPlayer = human;
     this.computerPlayer = computer;
     this.winner = '';
@@ -7,7 +7,7 @@ class Game {
     this.type = '';
   }
 
-  determineWinner() { //is there a better way?
+  determineWinner() {
     if (this.humanPlayer.fighter.type === this.computerPlayer.fighter.type) {
       this.tie = true;
       this.winner = {
@@ -18,9 +18,10 @@ class Game {
     }
 
     for (var i = 0; i < humanWinConditions[currentGame.type].length; i++) {
-      if (humanWinConditions[currentGame.type][i].humanFighter === this.humanPlayer.fighter.type && humanWinConditions[currentGame.type][i].computerFighter === this.computerPlayer.fighter.type) {
+      if (humanWinConditions[currentGame.type][i].humanFighter === this.humanPlayer.fighter.type && humanWinConditions[currentGame.type][i].computerFighter.includes(this.computerPlayer.fighter.type)) {
         this.winner = this.humanPlayer;
         this.humanPlayer.wins ++;
+        //could i put the tie in here?????
         return; //necessary?
       }
     }
@@ -30,29 +31,6 @@ class Game {
 
 //^^^ if we did have the plaers in one key as an array,
 //could we loop through the array and check then have an if then statment??? idk maybe
-
-
-
-    // if (this.humanPlayer.fighter === this.computerPlayer.fighter) {
-    //   this.tie = true;
-    //     this.winner = {
-    //       winner: 'none',
-    //       resultText: "draw  😐",
-    //     };
-    // } else if (this.humanPlayer.fighter === 'rock' && this.computerPlayer.fighter === 'scissors') {
-    //   this.winner = this.humanPlayer;
-    //   this.humanPlayer.wins ++;
-    // } else if (this.humanPlayer.fighter === 'paper' && this.computerPlayer.fighter === 'rock') {
-    //   this.winner = this.humanPlayer;
-    //   this.humanPlayer.wins ++;
-    // } else if (this.humanPlayer.fighter === 'scissors' && this.computerPlayer.fighter === 'paper') {
-    //   this.winner = this.humanPlayer;
-    //   this.humanPlayer.wins ++;
-    // } else {
-    //   this.winner = this.computerPlayer;
-    //   this.computerPlayer.wins ++;
-    // }
-
   }
 
   resetBoard() {
@@ -62,31 +40,3 @@ class Game {
     this.tie = false;
   }
 }
-
-
-//OLD WORKING DETERMINE WINNER CODE, BUT TOO LONG
-// if (this.humanPlayer.fighter === 'rock' && this.computerPlayer.fighter === 'scissors') {
-//   this.winner = this.humanPlayer;
-//   this.humanPlayer.wins ++;
-// } else if (this.humanPlayer.fighter === 'rock' && this.computerPlayer.fighter === 'paper') {
-//   this.winner = this.computerPlayer;
-//   this.computerPlayer.wins ++;
-// } else if (this.humanPlayer.fighter === 'paper' && this.computerPlayer.fighter === 'rock'){
-//   this.winner = this.humanPlayer;
-//   this.humanPlayer.wins ++;
-// } else if (this.humanPlayer.fighter === 'paper' && this.computerPlayer.fighter === 'scissors') {
-//   this.winner = this.computerPlayer;
-//   this.computerPlayer.wins ++;
-// } else if (this.humanPlayer.fighter === 'scissors' && this.computerPlayer.fighter === 'paper') {
-//   this.winner = this.humanPlayer;
-//   this.humanPlayer.wins ++;
-// } else if (this.humanPlayer.fighter === 'scissors' && this.computerPlayer.fighter === 'rock') {
-//   this.winner = this.computerPlayer;
-//   this.computerPlayer.wins ++;
-// } else if (this.humanPlayer.fighter === this.computerPlayer.fighter) {
-//   this.tie = true;
-//   this.winner = {
-//     winner: 'none',
-//     resultText: "draw  😐",
-//   };
-// }
