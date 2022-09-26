@@ -7,7 +7,7 @@ class Game {
     this.type = '';
   }
 
-  determineWinner() { //is there a better way?
+  determineWinner() {
     if (this.humanPlayer.fighter.type === this.computerPlayer.fighter.type) {
       this.tie = true;
       this.winner = {
@@ -18,7 +18,7 @@ class Game {
     }
 
     for (var i = 0; i < humanWinConditions[currentGame.type].length; i++) {
-      if (humanWinConditions[currentGame.type][i].humanFighter === this.humanPlayer.fighter.type && humanWinConditions[currentGame.type][i].computerFighter === this.computerPlayer.fighter.type) {
+      if (humanWinConditions[currentGame.type][i].humanFighter === this.humanPlayer.fighter.type && humanWinConditions[currentGame.type][i].computerFighter.includes(this.computerPlayer.fighter.type)) {
         this.winner = this.humanPlayer;
         this.humanPlayer.wins ++;
         //could i put the tie in here?????

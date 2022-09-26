@@ -105,7 +105,7 @@ function loadGame(currentGame) {
 
   for (var i = 0; i < fighterTypes[currentGame.type].length; i++) {
     gameRules.innerHTML += `
-      <dt>・<strong>${ruleData[currentGame.type][i].winner}</strong> >>> <strong>${ruleData[currentGame.type][i].loser}</strong>  </dt>
+      <dt>・<strong>${humanWinConditions[currentGame.type][i].humanFighter}</strong> >>> <strong>${humanWinConditions[currentGame.type][i].computerFighter.join(' & ')}</strong>  </dt>
     `;
     fighterDisplays[currentGame.type].innerHTML += `
       <img id="${fighterTypes[currentGame.type][i].type}" class="${fighterTypes[currentGame.type][i].type}-image" src="${fighterTypes[currentGame.type][i].img}" alt="${fighterTypes[currentGame.type][i].type}">
@@ -141,13 +141,10 @@ function selectFighters(event, currentGame) {
     `;
 
     event.target.classList.add('shake');
+
     setTimeout(function() {
       removeShake(event);
     }, 2000);
-    // setTimeout(removeShake, 2000) //need be outside selectFighters fxn??
-    // function removeShake(event) {
-    //   event.target.classList.remove('shake') //does event need be a param???
-    // }
   }
 }
 
@@ -172,7 +169,7 @@ function showResults(event, currentGame) {
     setTimeout(function() {
       loadGame(currentGame);
     }, 2700);
-    
+
     currentGame.resetBoard();
   }
 }
