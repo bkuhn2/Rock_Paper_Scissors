@@ -22,7 +22,7 @@ header {
   width: 100%;
   margin: 10px;
   margin-bottom: 40px;
-  background: #00000036;
+  background: #0000005c;
 
 }
 
@@ -56,19 +56,17 @@ h2 {
 
 /* Human and computer section elements */
 
-.human-section,
-.computer-section {
+.player-section {
   height: 100vh;
   width: 275px;
   display: flex;
   flex-direction: column;
-  background-image: url("./assets/white2.jpg");
+  background-image:
+  linear-gradient(0deg, rgba(17,17,17, 0.97) -6%, rgba(48,48,48, 0.06) 30%),
+  url("./assets/white2.jpg");
   align-items: center;
   flex-wrap: nowrap;
-  /* background: rgb(31,30,30); */
-  /* background: linear-gradient(0deg, rgba(31,30,30,1) 14%, rgba(48,48,48,1) 92%); */
 }
-/* ^^^^make one???? */
 
 .player-type-heading {
   font-family: 'Berkshire Swash', cursive;
@@ -112,7 +110,6 @@ h2 {
   justify-content: flex-start;
   border-radius: 10px;
 }
-/* ^^^^make one???? */
 
 .wins-tally {
   margin: 4px;
