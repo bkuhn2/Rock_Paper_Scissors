@@ -93,20 +93,27 @@ function setGameType(currentGame) {
   currentGame.type = event.target.innerText;
 }
 
+function loadGameHeader(currentGame) {
+  gameHeader.innerText = `${currentGame.type.charAt(0).toUpperCase() + currentGame.type.slice(1)} Game`;
+  gameRules.innerHTML = '';
+  for (var i = 0; i < humanWinConditions[currentGame.type].length; i++) {
+    gameRules.innerHTML += `
+      <dt>・<strong>${humanWinConditions[currentGame.type][i].humanFighter}</strong> >> <strong>${humanWinConditions[currentGame.type][i].computerFighter.join(' & ')}</strong>  </dt>
+    `;
+  }
+}
+
 function loadGame(currentGame) {
   homePage.classList.add('hidden');
   gamePage.classList.remove('hidden');
   gamePage.classList.add(`${currentGame.type}-background`);
   gameAreas[currentGame.type].classList.remove('hidden');
   resultsAreas[currentGame.type].classList.add('hidden');
-  gameHeader.innerText = `${currentGame.type.charAt(0).toUpperCase() + currentGame.type.slice(1)} Game`;
-  gameRules.innerHTML = '';
-  fighterDisplays[currentGame.type].innerHTML = '';
 
+  loadGameHeader(currentGame);
+
+  fighterDisplays[currentGame.type].innerHTML = '';
   for (var i = 0; i < fighterTypes[currentGame.type].length; i++) {
-    gameRules.innerHTML += `
-      <dt>・<strong>${humanWinConditions[currentGame.type][i].humanFighter}</strong> >>> <strong>${humanWinConditions[currentGame.type][i].computerFighter.join(' & ')}</strong>  </dt>
-    `;
     fighterDisplays[currentGame.type].innerHTML += `
       <img id="${fighterTypes[currentGame.type][i].type}" class="${fighterTypes[currentGame.type][i].type}-image" src="${fighterTypes[currentGame.type][i].img}" alt="${fighterTypes[currentGame.type][i].type}">
     `;
