@@ -2,6 +2,7 @@
 var currentGame;
 
 
+
 //-----------------------------HTML Elements------------------------------->
 var homePage = document.querySelector('#homePage');
 var classicGameButton = document.querySelector('#classicGameButton');
@@ -40,9 +41,11 @@ var fighterInstructions = {
 
 
 
+
 //-----------------------------Event Listeners------------------------------>
 window.addEventListener('load', createGame);
 namingButton.addEventListener('click', function() {
+  updatePlayerName(currentGame);
   loadHomePage(currentGame);
 });
 classicGameButton.addEventListener('click', function() {
@@ -63,6 +66,7 @@ changeGameButton.addEventListener('click', loadChangeGameOptions)
 
 
 
+
 //---------------------------Functions, Event Handlers-------------------->
 function createGame() {
   humanPlayer = new Player('human');
@@ -80,7 +84,6 @@ function updatePlayerName(currentGame) {
 }
 
 function loadHomePage(currentGame) {
-  updatePlayerName(currentGame);
   typeNameArea.classList.add('hidden');
   chooseGameArea.classList.remove('hidden');
 }
@@ -186,5 +189,4 @@ function loadChangeGameOptions() {
   gamePage.classList.remove(`${currentGame.type}-background`);
   gamePage.classList.add('hidden');
   homePage.classList.remove('hidden');
-   //also remove main, make main background its own css property/class
 }
