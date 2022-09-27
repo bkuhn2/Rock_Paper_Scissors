@@ -133,8 +133,6 @@ function removeShake(event) {
 }
 
 function selectFighters(event, currentGame) {
-  event.preventDefault(); //necessary?
-
   var currentFighterTypes = [];
   for (var i = 0; i < fighterTypes[currentGame.type].length; i++) {
     currentFighterTypes.push(fighterTypes[currentGame.type][i].type)
@@ -159,8 +157,6 @@ function selectFighters(event, currentGame) {
 }
 
 function showResults(event, currentGame) {
-  event.preventDefault();
-
   if (event.target.id === 'fightButton') {
     currentGame.determineWinner();
 
