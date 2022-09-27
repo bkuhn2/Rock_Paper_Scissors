@@ -20,7 +20,6 @@ header {
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
-  margin: 10px;
   margin-bottom: 40px;
   background: #00000073;
 
@@ -29,6 +28,7 @@ header {
 body {
   display: flex;
   flex-direction: row;
+  background: #1e1e1e;
 }
 
 button {
@@ -57,15 +57,15 @@ h2 {
 /* Human and computer section elements */
 
 .player-section {
-  height: 100vh;
   width: 275px;
   display: flex;
   flex-direction: column;
   background-image:
-  linear-gradient(0deg, rgba(17,17,17, 0.88) -5%, rgba(120,78,10, 0.25) 30%),
+  linear-gradient(0deg, rgba(17,17,17, 0.75) -5%, rgba(120,78,10, 0.25) 30%),
   url("./assets/white2.jpg");
   align-items: center;
   flex-wrap: nowrap;
+  border-radius: 10px;
 }
 
 .player-type-heading {
@@ -140,9 +140,9 @@ h2 {
   background-image:
   linear-gradient(0deg, rgba(17,17,17,0.76) 0%, rgba(48,48,48,0.04) 54%),
   url("./assets/blacktexture.jpg");
-  border-radius: 10px;
   min-width: 1050px;
   min-height: 955px;
+  border-radius: 10px;
 }
 
 .name-human-player-area {
