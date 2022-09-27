@@ -22,6 +22,7 @@ class Game {
         return;
       }
     }
+    
     this.winner = this.computerPlayer;
     this.computerPlayer.wins ++;
   }

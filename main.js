@@ -1,4 +1,4 @@
-//---------------------------Global Variable(s)---------------------------->
+//------------------------Global Variable/Data Model----------------------->
 var currentGame;
 
 
@@ -37,32 +37,38 @@ var fighterDisplays = {
 var fighterInstructions = {
   classic: classicFighterInstructions = document.querySelector('.classic-fighter-instructions'),
   spooky: spookyFighterInstructions = document.querySelector('.spooky-fighter-instructions')
-}
+};
 
 
 
 
 //-----------------------------Event Listeners------------------------------>
 window.addEventListener('load', createGame);
+
 namingButton.addEventListener('click', function() {
   updatePlayerName(currentGame);
   loadHomePage(currentGame);
 });
+
 classicGameButton.addEventListener('click', function() {
   setGameType(currentGame);
   loadGame(currentGame);
 });
+
 spookyGameButton.addEventListener('click', function() {
   setGameType(currentGame);
   loadGame(currentGame);
 });
+
 gamePage.addEventListener('click', function(event) {
   selectFighters(event, currentGame);
 });
+
 gamePage.addEventListener('click', function(event) {
   showResults(event, currentGame);
 });
-changeGameButton.addEventListener('click', loadChangeGameOptions)
+
+changeGameButton.addEventListener('click', loadChangeGameOptions);
 
 
 
@@ -99,9 +105,10 @@ function setGameType(currentGame) {
 function loadGameHeader(currentGame) {
   gameHeader.innerText = `${currentGame.type.charAt(0).toUpperCase() + currentGame.type.slice(1)} Game`;
   gameRules.innerHTML = '';
+
   for (var i = 0; i < humanWinConditions[currentGame.type].length; i++) {
     gameRules.innerHTML += `
-      <dt><strong>${humanWinConditions[currentGame.type][i].humanFighter}</strong> >> <strong>${humanWinConditions[currentGame.type][i].computerFighter.join(' & ')}</strong>  </dt>
+      <dt><strong>${humanWinConditions[currentGame.type][i].humanFighter}</strong> > <strong>${humanWinConditions[currentGame.type][i].computerFighter.join(' & ')}</strong>  </dt>
     `;
   }
 }
@@ -116,6 +123,7 @@ function loadGame(currentGame) {
   loadGameHeader(currentGame);
 
   fighterDisplays[currentGame.type].innerHTML = '';
+
   for (var i = 0; i < fighterTypes[currentGame.type].length; i++) {
     fighterDisplays[currentGame.type].innerHTML += `
       <img id="${fighterTypes[currentGame.type][i].type}" class="${currentGame.type}-image" src="${fighterTypes[currentGame.type][i].img}" alt="${fighterTypes[currentGame.type][i].type}">
@@ -125,7 +133,7 @@ function loadGame(currentGame) {
   fighterInstructions[currentGame.type].innerHTML = '';
   fighterInstructions[currentGame.type].innerHTML += `
     <h2 class="game-text">◀  Choose your fighter and <br> click the FIGHT button ▼</h2>
-  `
+  `;
 }
 
 function removeShake(event) {
@@ -133,11 +141,10 @@ function removeShake(event) {
 }
 
 function selectFighters(event, currentGame) {
-  event.preventDefault(); //necessary?
-
   var currentFighterTypes = [];
+
   for (var i = 0; i < fighterTypes[currentGame.type].length; i++) {
-    currentFighterTypes.push(fighterTypes[currentGame.type][i].type)
+    currentFighterTypes.push(fighterTypes[currentGame.type][i].type);
   }
 
   if (currentFighterTypes.includes(event.target.id)) {
@@ -155,12 +162,11 @@ function selectFighters(event, currentGame) {
     setTimeout(function() {
       removeShake(event);
     }, 2000);
+
   }
 }
 
 function showResults(event, currentGame) {
-  event.preventDefault();
-
   if (event.target.id === 'fightButton') {
     currentGame.determineWinner();
 

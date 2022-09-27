@@ -1,19 +1,11 @@
 
-/* global style elements */
+/* ---------------Global style elements --------------------*/
 
 * {
   font-family: 'Tajawal', sans-serif;
 }
 
-section {
-  /* border-width: 30px;
-  border: cadetblue;
-  border-style: solid; */
-}
 header {
-  /* border-width: 25px;
-  border: black;
-  border-style: solid; */
   font-size: 1.75em;
   display: flex;
   flex-direction: row;
@@ -22,7 +14,6 @@ header {
   width: 100%;
   margin-bottom: 40px;
   background: #00000073;
-
 }
 
 body {
@@ -45,16 +36,42 @@ h1 {
   color: #f4eade;
   margin: 22px;
   font-family: 'Berkshire Swash', cursive;
-
 }
 
 h2 {
   padding: 14px;
   text-align: center;
-
 }
 
-/* Human and computer section elements */
+.main-section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image:
+  linear-gradient(0deg, rgba(17,17,17,0.76) 0%, rgba(48,48,48,0.04) 54%),
+  url("./assets/blacktexture.jpg");
+  min-width: 1050px;
+  min-height: 955px;
+  border-radius: 10px;
+}
+
+.game-text {
+  margin: 44px;
+  background: #13131359;
+  border-radius: 50px;
+  color: #e14744;
+  border-width: 3px;
+  border-color: #66666673;
+  border-style: solid;
+  font-size: 1.3em;
+  font-weight: 300;
+}
+
+
+
+/* -----------Human and computer section elements ---------------*/
 
 .player-section {
   width: 275px;
@@ -92,26 +109,17 @@ h2 {
   height: 160px;
   width: 160px;
   margin-top: 14px;
-  /* border-width: 25px;
-  border: aqua;
-  border-style: solid; */
 }
-/* ^^^^make one???? */
-
 
 .score-section {
-  /* border-width: 25px;
-  border: pink;
-  border-style: solid; */
   height: 82%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  border-radius: 10px;
 }
 
-.wins-tally {
+.wins-header {
   margin: 4px;
   font-size: 1.2em;
   font-weight: 500;
@@ -128,28 +136,13 @@ h2 {
 }
 
 
-/* Home Page Specific Elements */
 
-.main-section {
-  height: 100vh;
-  width: 100%;
-  min-width: 900px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-image:
-  linear-gradient(0deg, rgba(17,17,17,0.76) 0%, rgba(48,48,48,0.04) 54%),
-  url("./assets/blacktexture.jpg");
-  min-width: 1050px;
-  min-height: 955px;
-  border-radius: 10px;
-}
+/* ----------------Home Page Specific Elements -----------------*/
 
 .name-human-player-area {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .input-boxes-labels {
@@ -172,21 +165,15 @@ h2 {
   font-size: 1em;
   border-radius: 7px;
   font-weight: 200;
-
 }
 
-.label {
+label {
   color: #f4eade;
   font-family: 'Berkshire Swash', cursive;
   margin: 8px;
 }
 
-
-
 .choose-game-area {
-  /* border-width: 25px;
-  border: blue;
-  border-style: solid; */
   height: 100%;
   width: 100%;
   display: flex;
@@ -195,42 +182,20 @@ h2 {
   justify-content: flex-start;
 }
 
-.game-text {
-  /* border-width: 25px;
-  border: orange;
-  border-style: solid; */
-  margin: 44px;
-  background: #13131359;
-  border-radius: 50px;
-  color: #e14744;
-  border-width: 3px;
-  border-color: #66666673;
-  border-style: solid;
-  font-size: 1.3em;
-  font-weight: 300;
-}
-
 .game-choices {
   display: flex;
-  /* border-width: 25px;
-  border: red;
-  border-style: solid; */
   width: 100%;
   justify-content: space-evenly;
-
 }
 
 
-/* Game Page Elements */
+
+/* --------------------Game Page Elements ---------------------*/
 
 dl {
   border: #acacac40;
   border-style: solid;
-  margin-top: 14px;
-  margin-right: -65px;
-  margin-left: -59px;
-  margin-bottom: 17px;
-          /* consolidate all this margin stuff? */
+  margin: 14px -65px 17px -59px;
   color: #f4eade;
   font-size: 0.45em;
   font-weight: 100;
@@ -273,9 +238,6 @@ dl {
 .spooky-game-area,
 .classic-results-area,
 .spooky-results-area {
-  /* border-width: 25px;
-  border: red;
-  border-style: solid; */
   display: flex;
   height: 675px;
   width: 100%;
@@ -284,9 +246,6 @@ dl {
 }
 
 .classic-fighter-display {
-  /* border-width: 25px;
-  border: blue;
-  border-style: solid; */
   height: 675px;
   width: 187px;
   display: flex;
@@ -329,9 +288,6 @@ dl {
 }
 
 .question-mark {
-  /* border-width: 25px;
-  border: blue;
-  border-style: solid; */
   height: 283px;
   width: 182px;
   margin-right: -3px;
@@ -368,7 +324,8 @@ dl {
 }
 
 
-/* Hidden styles */
+
+/* --------------Hiding styles -------------------------*/
 
 .hidden {
   display: none;
