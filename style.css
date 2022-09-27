@@ -92,17 +92,10 @@ h2 {
   height: 160px;
   width: 160px;
   margin-top: 14px;
-  /* border-width: 25px;
-  border: aqua;
-  border-style: solid; */
 }
-/* ^^^^make one???? */
 
 
 .score-section {
-  /* border-width: 25px;
-  border: pink;
-  border-style: solid; */
   height: 82%;
   display: flex;
   flex-direction: column;
@@ -133,7 +126,6 @@ h2 {
 .main-section {
   height: 100vh;
   width: 100%;
-  min-width: 900px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -149,7 +141,6 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .input-boxes-labels {
@@ -184,9 +175,6 @@ h2 {
 
 
 .choose-game-area {
-  /* border-width: 25px;
-  border: blue;
-  border-style: solid; */
   height: 100%;
   width: 100%;
   display: flex;
@@ -196,9 +184,6 @@ h2 {
 }
 
 .game-text {
-  /* border-width: 25px;
-  border: orange;
-  border-style: solid; */
   margin: 44px;
   background: #13131359;
   border-radius: 50px;
@@ -209,15 +194,12 @@ h2 {
   font-size: 1.3em;
   font-weight: 300;
 }
+/* move to global */
 
 .game-choices {
   display: flex;
-  /* border-width: 25px;
-  border: red;
-  border-style: solid; */
   width: 100%;
   justify-content: space-evenly;
-
 }
 
 

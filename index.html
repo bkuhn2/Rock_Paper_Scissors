@@ -21,7 +21,7 @@
       <header>
         <h1>Rock, Paper, Scissors</h1>
       </header>
-      <div class="name-human-player-area">
+      <section class="name-human-player-area">
         <h2 class="game-text">Choose your name and token</h2>
         <div class="name-input-forms">
           <div class="input-boxes-labels">
@@ -32,26 +32,26 @@
             <input class="input-box" id="userEmojiInput" type="text" value="your favorite emoji">
             <label for="userEmojiInput" class="label">Token</label>
           </div>
-          <button class="make-name-button "id="updateNameButton" type="button">GO</button>
+          <button id="updateNameButton" type="button">GO</button>
         </div>
-      </div>
-      <div class="choose-game-area hidden">
+      </section>
+      <section class="choose-game-area hidden">
         <h2 class="game-text">Which game would you like to play?</h2>
         <div class="game-choices">
           <button type="button" id="classicGameButton">classic</button>
           <button type="button" id="spookyGameButton">spooky</button>
         </div>
-      </div>
+      </section>
     </section>
     <section class="main-section hidden" id="gamePage">
       <header>
         <dl>
-          <!-- rules of the game -->
+          <!-- rules of the game populate here-->
         </dl>
         <h1 id="gameHeader"><!--game type populates here--></h1>
         <button class="change-game-button" type="button" id="changeGameButton">change game</button>
       </header>
-      <div class="classic-game-area hidden">
+      <section class="classic-game-area hidden">
         <div class="classic-fighter-display">
           <!-- images will populate here -->
         </div>
@@ -60,11 +60,11 @@
           <!-- button will populate here -->
         </div>
         <img class="question-mark" src="./assets/questionmark.png" alt="Question Mark">
-      </div>
-      <div class="classic-results-area hidden">
+      </section>
+      <section class="classic-results-area hidden">
         <!-- results populate here -->
-      </div>
-      <div class="spooky-game-area hidden">
+      </section>
+      <section class="spooky-game-area hidden">
         <div class="spooky-fighter-display">
           <!-- images will populate here -->
         </div>
@@ -72,11 +72,11 @@
           <h2 class="game-text">◀  Choose your fighter and <br> click the FIGHT button ▼</h2>
           <!-- button will populate here -->
         </div>
-        <img class="circle" src="./assets/circle2.png" alt="Blood Splatter">
-      </div>
-      <div class="spooky-results-area hidden">
+        <img class="circle" src="./assets/circle2.png" alt="Summoning circle">
+      </section>
+      <section class="spooky-results-area hidden">
         <!-- results populate here -->
-      </div>
+      </section>
     </section>
     <section class="player-section">
       <img src="./assets/terminator.jpeg" class="player-photo" alt="Depiction of the computer enemy">
