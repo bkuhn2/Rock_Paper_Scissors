@@ -1,6 +1,10 @@
 
 /* global style elements */
 
+* {
+  font-family: 'Tajawal', sans-serif;
+}
+
 section {
   /* border-width: 30px;
   border: cadetblue;
@@ -16,58 +20,73 @@ header {
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
-  margin: 10px;
   margin-bottom: 40px;
-  background: #00000036;
+  background: #00000073;
 
 }
 
 body {
   display: flex;
   flex-direction: row;
+  background: #1e1e1e;
 }
 
 button {
-  height: 33px;
-  width: 101px;
+  height: 39px;
+  width: 127px;
   border-radius: 10px;
   cursor: pointer;
+  font-family: monospace;
+  font-size: 1.4em;
+  background: darkgray;
 }
 
 h1 {
-  color: #EBE9D7;
+  color: #f4eade;
   margin: 22px;
+  font-family: 'Berkshire Swash', cursive;
+
 }
 
 h2 {
   padding: 14px;
   text-align: center;
+
 }
 
 /* Human and computer section elements */
 
-.human-section,
-.computer-section {
-  height: 100vh;
+.player-section {
   width: 275px;
   display: flex;
   flex-direction: column;
-  background-image: url("./assets/white2.jpg");
+  background-image:
+  linear-gradient(0deg, rgba(17,17,17, 0.75) -5%, rgba(120,78,10, 0.25) 30%),
+  url("./assets/white2.jpg");
   align-items: center;
   flex-wrap: nowrap;
-  /* background: rgb(31,30,30); */
-  /* background: linear-gradient(0deg, rgba(31,30,30,1) 14%, rgba(48,48,48,1) 92%); */
+  border-radius: 10px;
 }
-/* ^^^^make one???? */
+
+.player-type-heading {
+  font-family: 'Berkshire Swash', cursive;
+  font-size: 1.7em;
+}
 
 .human-name-and-emoji {
   margin: 3px;
-  padding: 3px;
+  padding: 0px;
+  margin-bottom: 20px;
+  font-weight: 200;
+}
+
+.computer-name-and-emoji {
+  margin: 8px;
+  padding: 13px;
   margin-bottom: 20px;
 }
 
-.human-photo,
-.computer-photo {
+.player-photo {
   padding: 7px;
   border-radius: 14px;
   height: 160px;
@@ -80,8 +99,7 @@ h2 {
 /* ^^^^make one???? */
 
 
-.human-score-section,
-.computer-score-section {
+.score-section {
   /* border-width: 25px;
   border: pink;
   border-style: solid; */
@@ -92,11 +110,23 @@ h2 {
   justify-content: flex-start;
   border-radius: 10px;
 }
-/* ^^^^make one???? */
 
 .wins-tally {
   margin: 4px;
+  font-size: 1.2em;
+  font-weight: 500;
+  font-family: 'Berkshire Swash', cursive;
+  margin-top: 34px;
 }
+
+.wins-number {
+  font-size: 3.6em;
+  font-weight: 300;
+  font-family: 'Berkshire Swash', cursive;
+  margin-top: -4px;
+  text-shadow: 5px 3px 1px #52525252;
+}
+
 
 /* Home Page Specific Elements */
 
@@ -110,8 +140,9 @@ h2 {
   background-image:
   linear-gradient(0deg, rgba(17,17,17,0.76) 0%, rgba(48,48,48,0.04) 54%),
   url("./assets/blacktexture.jpg");
-  border-radius: 10px;
   min-width: 1050px;
+  min-height: 955px;
+  border-radius: 10px;
 }
 
 .name-human-player-area {
@@ -136,12 +167,21 @@ h2 {
 }
 
 .input-box {
+  height: 31px;
+  width: 208px;
+  font-size: 1em;
+  border-radius: 7px;
+  font-weight: 200;
 
 }
 
 .label {
-
+  color: #f4eade;
+  font-family: 'Berkshire Swash', cursive;
+  margin: 8px;
 }
+
+
 
 .choose-game-area {
   /* border-width: 25px;
@@ -162,10 +202,12 @@ h2 {
   margin: 44px;
   background: #13131359;
   border-radius: 50px;
-  color: #b75250;
+  color: #e14744;
   border-width: 3px;
   border-color: #66666673;
   border-style: solid;
+  font-size: 1.3em;
+  font-weight: 300;
 }
 
 .game-choices {
@@ -184,23 +226,23 @@ h2 {
 dl {
   border: #acacac40;
   border-style: solid;
-  width: 230px;
-  height: 121px;
   margin-top: 14px;
   margin-right: -65px;
-  margin-left: -77px;
+  margin-left: -59px;
   margin-bottom: 17px;
           /* consolidate all this margin stuff? */
-  color: #EBE9D7;
-  font-size: 0.53em;
+  color: #f4eade;
+  font-size: 0.45em;
+  font-weight: 100;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: flex-start;
+  align-items: center;
   border-radius: 12px;
   background: #2a2a2a99;
   border-width: 2px;
-  padding: 7px;
+  padding: 15px;
+  min-width: 191px;
 }
 
 .change-game-button {
@@ -208,11 +250,23 @@ dl {
   height: 50px;
   width: 134px;
   margin-right: -34px;
-  background: rgb(31,30,30);
-  background: linear-gradient(150deg, rgba(31,30,30,1) 0%, rgba(200,200,200,1) 66%);
+  background: rgb(31 30 30 / 47%);
+  border-style: solid;
+  border-width: 1px;
+  color: #7ce7d1;
+  font-family: 'Berkshire Swash', cursive;
 }
 
 .fight-button {
+  font-size: 1.8em;
+  height: 50px;
+  width: 134px;
+  background: rgb(31 30 30 / 74%);
+  border-style: solid;
+  border-width: 1px;
+  color: #7ce7d1;
+  font-family: auto;
+  font-weight: 700;
 }
 
 .classic-game-area,
@@ -283,12 +337,11 @@ dl {
   margin-right: -3px;
 }
 
-.blood-splatter {
-  height: 300px;
-  width: 339px;
-  margin-right: -96px;
+.circle {
+  height: 230px;
+  width: 230px;
+  margin-right: 10px;
   margin-left: -31px;
-  opacity: 0.6;
 }
 
 .shake {
@@ -310,8 +363,8 @@ dl {
 
 .classic-background {
   background-image:
-  linear-gradient(0deg, rgba(17,17,17,0.76) 0%, rgba(48,48,48,0.04) 54%),
-  url("./assets/blacktexture.jpg");
+  linear-gradient(0deg, rgba(0,0,0,0.7) -2%, rgba(10,9,9,0.6) 71%),
+  url("./assets/cliff.jpg");
 }
 
 
