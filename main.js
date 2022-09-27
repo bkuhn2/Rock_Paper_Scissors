@@ -98,7 +98,7 @@ function loadGameHeader(currentGame) {
   gameRules.innerHTML = '';
   for (var i = 0; i < humanWinConditions[currentGame.type].length; i++) {
     gameRules.innerHTML += `
-      <dt>・<strong>${humanWinConditions[currentGame.type][i].humanFighter}</strong> >> <strong>${humanWinConditions[currentGame.type][i].computerFighter.join(' & ')}</strong>  </dt>
+      <dt><strong>${humanWinConditions[currentGame.type][i].humanFighter}</strong> >> <strong>${humanWinConditions[currentGame.type][i].computerFighter.join(' & ')}</strong>  </dt>
     `;
   }
 }

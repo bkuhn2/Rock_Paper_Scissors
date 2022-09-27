@@ -225,11 +225,9 @@ h2 {
 dl {
   border: #acacac40;
   border-style: solid;
-  width: 230px;
-  height: 121px;
   margin-top: 14px;
   margin-right: -65px;
-  margin-left: -77px;
+  margin-left: -59px;
   margin-bottom: 17px;
           /* consolidate all this margin stuff? */
   color: #f4eade;
@@ -238,11 +236,12 @@ dl {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: flex-start;
+  align-items: center;
   border-radius: 12px;
   background: #2a2a2a99;
   border-width: 2px;
-  padding: 7px;
+  padding: 15px;
+  min-width: 191px;
 }
 
 .change-game-button {
