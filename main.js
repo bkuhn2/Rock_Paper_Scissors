@@ -133,7 +133,7 @@ function loadGame(currentGame) {
   fighterInstructions[currentGame.type].innerHTML = '';
   fighterInstructions[currentGame.type].innerHTML += `
     <h2 class="game-text">◀  Choose your fighter and <br> click the FIGHT button ▼</h2>
-  `
+  `;
 }
 
 function removeShake(event) {

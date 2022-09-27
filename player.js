@@ -5,7 +5,7 @@ class Player {
     this.wins = 0;
     this.token = token;
     this.fighter = '';
-    this.resultText = `${this.token} ${this.name} wins!`
+    this.resultText = `${this.token} ${this.name} wins!`;
   }
   takeTurn(event, currentGame) {
     for (var i = 0; i < fighterTypes[currentGame.type].length; i++) {
